@@ -1,0 +1,68 @@
+import type { Certification } from '../types';
+
+export const certifications: Certification[] = [
+  {
+    id: 'cert-green-ai',
+    name: 'Green Skills & AI',
+    organization: 'Skills4Future',
+    date: 'March 2025',
+    skillsCovered: ['AI', 'Sustainability', 'Green Technology'],
+    image: '/certificates/cert-green-ai.png',
+    featured: true,
+  },
+  {
+    id: 'cert-meta-db',
+    name: 'Introduction to Databases',
+    organization: 'Meta / Coursera',
+    date: 'December 2025',
+    skillsCovered: ['Databases', 'SQL', 'Data Modeling'],
+    image: '/certificates/cert-meta-db.png',
+    featured: true,
+  },
+  {
+    id: 'cert-google-git',
+    name: 'Introduction to Git and GitHub',
+    organization: 'Google / Coursera',
+    date: 'December 2025',
+    skillsCovered: ['Git', 'GitHub', 'Version Control'],
+    image: '/certificates/cert-google-git.png',
+    featured: true,
+  },
+  {
+    id: 'cert-google-linux',
+    name: 'Tools of the Trade: Linux and SQL',
+    organization: 'Google / Coursera',
+    date: 'June 2025',
+    skillsCovered: ['Linux', 'Command Line', 'OS Fundamentals'],
+    image: '/certificates/cert-google-linux.png',
+    featured: true,
+  },
+  {
+    id: 'cert-deloitte-da',
+    name: 'Data Analytics Job Simulation',
+    organization: 'Deloitte',
+    date: 'August 2026',
+    skillsCovered: ['Data Analytics', 'Forensic Technology', 'Data Analysis'],
+    image: '/certificates/cert-deloitte-da.png',
+    featured: true,
+  },
+  {
+    id: 'cert-infosys-security',
+    name: 'CompTIA Security+: Virtualization & Cloud Security',
+    organization: 'Infosys',
+    date: 'April 2026',
+    skillsCovered: ['Cybersecurity', 'Cloud Computing', 'Virtualization', 'Security+'],
+    image: '/certificates/cert-infosys-security.png',
+    featured: true,
+  },
+  {
+    id: 'cert-infosys-ml',
+    name: 'AWS Certified Machine Learning: AI/ML Services',
+    organization: 'Infosys',
+    date: 'April 2026',
+    skillsCovered: ['AWS', 'Machine Learning', 'AI/ML Services', 'Cloud AI'],
+    image: '/certificates/cert-infosys-ml.png',
+    featured: true,
+  },
+];
+

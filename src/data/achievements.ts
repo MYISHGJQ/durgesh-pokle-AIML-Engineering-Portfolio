@@ -1,0 +1,68 @@
+import type { Achievement } from '../types';
+
+export const achievements: Achievement[] = [
+  {
+    id: 'ach-project-builder',
+    title: 'Project Builder',
+    description: 'Successfully built and deployed 15+ AI/ML projects from concept to production.',
+    category: 'milestone',
+    icon: '🏆',
+    year: 2024,
+  },
+  {
+    id: 'ach-innovator',
+    title: 'Innovator',
+    description: 'Developed an original AI Digital Twin system for industrial monitoring.',
+    category: 'professional',
+    icon: '🚀',
+    year: 2024,
+  },
+  {
+    id: 'ach-ai-engineer',
+    title: 'AI Engineer',
+    description: 'Mastered deep learning, computer vision, and NLP through hands-on projects and certifications.',
+    category: 'certification',
+    icon: '🧠',
+    year: 2024,
+  },
+  {
+    id: 'ach-hackathon',
+    title: 'Hackathon Competitor',
+    description: 'Participated in multiple hackathons building AI-powered solutions under time pressure.',
+    category: 'competition',
+    icon: '⚡',
+    year: 2023,
+  },
+  {
+    id: 'ach-open-source',
+    title: 'Open Source Contributor',
+    description: 'Contributed to open source ML projects and shared tools with the developer community.',
+    category: 'professional',
+    icon: '🌐',
+    year: 2023,
+  },
+  {
+    id: 'ach-researcher',
+    title: 'Research Explorer',
+    description: 'Explored and implemented cutting-edge research papers in AI and machine learning.',
+    category: 'academic',
+    icon: '🔬',
+    year: 2024,
+  },
+  {
+    id: 'ach-full-stack',
+    title: 'Full Stack AI',
+    description: 'Built end-to-end AI solutions from data collection to model deployment to frontend.',
+    category: 'milestone',
+    icon: '🎯',
+    year: 2024,
+  },
+  {
+    id: 'ach-data-master',
+    title: 'Data Master',
+    description: 'Processed and analyzed 50+ datasets across diverse domains and industries.',
+    category: 'milestone',
+    icon: '📊',
+    year: 2023,
+  },
+];
