@@ -21,11 +21,13 @@ export default function Hero() {
       .fromTo('.hero-tagline', { opacity: 0 }, { opacity: 1, duration: 0.6 }, '-=0.4')
       .fromTo('.hero-ctas', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.3');
 
+    const isMobile = window.innerWidth < 768;
+
     // Rockstar-Style Cinematic Zoom Exit
     gsap.to(container.current, {
       scale: 0.90,
       opacity: 0.6,
-      filter: 'blur(3px)',
+      filter: isMobile ? 'none' : 'blur(3px)',
       ease: 'none',
       scrollTrigger: {
         trigger: container.current,

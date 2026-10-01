@@ -32,7 +32,9 @@ const hexToRgb = (hex: string): [number, number, number] => {
   return [parseInt(result[1], 16) / 255, parseInt(result[2], 16) / 255, parseInt(result[3], 16) / 255];
 };
 
-const detailToSteps = (detail: string): number => {
+const detailToSteps = (detail: string, isMobile: boolean = false, isTablet: boolean = false): number => {
+  if (isMobile) return 30.0;
+  if (isTablet) return 48.0;
   if (detail === 'low') return 40.0;
   if (detail === 'high') return 110.0;
   return 70.0;
@@ -183,14 +185,22 @@ export default function GradientWaves({
     if (!container) return;
 
     const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    const isMobile = window.innerWidth < 768 || (isTouch && window.innerWidth < 1024);
+    const isTablet = !isMobile && (window.innerWidth < 1024 || isTouch);
     const activeMouse = mouseInteraction && !isTouch;
+
+    const targetDpr = isMobile 
+      ? 1.0 
+      : isTablet 
+        ? Math.min(window.devicePixelRatio || 1, 1.5) 
+        : Math.min(window.devicePixelRatio || 1, 2);
 
     const renderer = new Renderer({
       webgl: 2,
       alpha: true,
       premultipliedAlpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: targetDpr
     });
 
     const gl = renderer.gl;
@@ -218,13 +228,13 @@ export default function GradientWaves({
         uZoom: { value: zoom },
         uHeight: { value: height },
         uFogDepth: { value: fogDepth },
-        uSteps: { value: detailToSteps(detail) },
+        uSteps: { value: detailToSteps(detail, isMobile, isTablet) },
         uBrightness: { value: brightness },
         uOpacity: { value: opacity },
-        uGrain: { value: grain ? 1.0 : 0.0 },
+        uGrain: { value: (grain && !isMobile) ? 1.0 : 0.0 },
         uGrainIntensity: { value: grainIntensity },
         uMouse: { value: new Float32Array([0.5, 0.5]) },
-        uParallax: { value: parallaxStrength },
+        uParallax: { value: isMobile ? 0.0 : parallaxStrength },
         uEnableMouse: { value: activeMouse },
         uHorizonColor: { value: new Float32Array([0, 0, 0]) },
         uWaveColor: { value: new Float32Array([1, 1, 1]) },

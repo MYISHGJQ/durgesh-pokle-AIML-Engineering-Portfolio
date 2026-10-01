@@ -1,31 +1,48 @@
 import { useEffect, useState } from 'react';
 
 export function useSectionObserver(sectionIds: string[]) {
-  const [activeSection, setActiveSection] = useState<string>(sectionIds[0] || 'hero');
+  const [activeSection, setActiveSection] = useState<string>(sectionIds[0] || 'home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Use focal line at 40% of viewport height
-      const viewportMiddle = window.innerHeight * 0.4;
-      let currentSection = sectionIds[0] || 'hero';
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      return;
+    }
 
-      for (const id of sectionIds) {
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= viewportMiddle && rect.bottom >= viewportMiddle) {
-            currentSection = id;
-            break;
+    const visibleMap = new Map<string, number>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          visibleMap.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
+        });
+
+        let bestId = '';
+        let highestRatio = -1;
+
+        for (const id of sectionIds) {
+          const ratio = visibleMap.get(id) || 0;
+          if (ratio > highestRatio && ratio > 0.05) {
+            highestRatio = ratio;
+            bestId = id;
           }
         }
+
+        if (bestId) {
+          setActiveSection((prev) => (prev !== bestId ? bestId : prev));
+        }
+      },
+      {
+        rootMargin: '-15% 0px -45% 0px',
+        threshold: [0, 0.1, 0.2, 0.4, 0.6, 0.8, 1],
       }
-      setActiveSection(currentSection);
-    };
+    );
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => observer.disconnect();
   }, [sectionIds]);
 
   return activeSection;

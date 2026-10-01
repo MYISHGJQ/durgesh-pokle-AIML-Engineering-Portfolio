@@ -45,14 +45,15 @@ function detectPerformanceTier(): PerformanceTier {
     return 'low';
   }
 
-  // Check screen size as mobile proxy
-  if (typeof window !== 'undefined' && window.innerWidth < 768) {
-    return 'medium';
-  }
-
-  // Check device pixel ratio (very high DPR = mobile, potentially slower GPU)
-  if (typeof window !== 'undefined' && window.devicePixelRatio > 2.5) {
-    return 'medium';
+  // Check mobile device (screen size or touch mobile)
+  if (typeof window !== 'undefined') {
+    const isTouch = window.matchMedia?.('(pointer: coarse)').matches;
+    if (window.innerWidth < 768) {
+      return 'low'; // Mobile performance mode
+    }
+    if (window.innerWidth < 1024 || (isTouch && window.innerWidth < 1180)) {
+      return 'medium'; // Tablet visual quality
+    }
   }
 
   // Check WebGL renderer info for GPU detection

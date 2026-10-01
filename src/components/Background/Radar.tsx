@@ -120,12 +120,13 @@ export default function Radar({
 
     // Detect touch devices to disable mouse interaction for performance
     const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+    const isMobile = window.innerWidth < 768 || (isTouchDevice && window.innerWidth < 1024);
     const allowMouse = enableMouseInteraction && !isTouchDevice;
 
     const renderer = new Renderer({
       alpha: true,
-      antialias: true,
-      dpr: Math.min(window.devicePixelRatio, 2),
+      antialias: !isMobile,
+      dpr: isMobile ? 1.0 : Math.min(window.devicePixelRatio, 2),
     });
 
     const gl = renderer.gl;
@@ -196,7 +197,9 @@ export default function Radar({
       window.addEventListener('mousemove', handleMouseMove, { passive: true });
     }
 
-    let animationFrameId: number;
+    let animationFrameId = 0;
+    let isVisible = true;
+    let isPageVisible = !document.hidden;
     const startTime = performance.now();
 
     const render = (time: number) => {
@@ -213,10 +216,40 @@ export default function Radar({
       animationFrameId = requestAnimationFrame(render);
     };
 
-    animationFrameId = requestAnimationFrame(render);
+    const tryStart = () => {
+      if (isVisible && isPageVisible && animationFrameId === 0) {
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
+
+    const tryStop = () => {
+      if (animationFrameId !== 0) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = 0;
+      }
+    };
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        isVisible ? tryStart() : tryStop();
+      },
+      { threshold: 0 }
+    );
+    io.observe(container);
+
+    const onVisibility = () => {
+      isPageVisible = !document.hidden;
+      isPageVisible ? tryStart() : tryStop();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+
+    tryStart();
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      tryStop();
+      io.disconnect();
+      document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('resize', handleResize);
       if (allowMouse) {
         window.removeEventListener('mousemove', handleMouseMove);

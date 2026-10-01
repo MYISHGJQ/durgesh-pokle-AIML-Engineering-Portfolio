@@ -21,15 +21,29 @@ function ScrollSync() {
   const setScrollProgress = useStore((state) => state.setScrollProgress);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+    let lastProgress = -1;
+
+    const update = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
       const progress = totalScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / totalScroll)) : 0;
-      setScrollProgress(progress);
+      if (Math.abs(progress - lastProgress) > 0.003) {
+        lastProgress = progress;
+        setScrollProgress(progress);
+      }
       ScrollTrigger.update();
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    update();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [setScrollProgress]);
