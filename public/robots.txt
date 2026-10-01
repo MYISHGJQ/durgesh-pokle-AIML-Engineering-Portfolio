@@ -1,13 +1,4 @@
 User-agent: *
 Allow: /
 
-# Allow crawling of all essential resources
-Allow: /assets/
-Allow: /certificates/
-Allow: /*.js$
-Allow: /*.css$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.svg$
-
 Sitemap: https://durgesh-pokle-aiml-engineer-portfolio.vercel.app/sitemap.xml
