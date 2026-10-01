@@ -111,6 +111,9 @@ export default function ProjectDetailModal() {
       {/* Modal Container */}
       <div
         ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-project-title"
         onClick={(e) => e.stopPropagation()}
         className="relative w-[94vw] sm:w-[90vw] md:w-[85vw] lg:w-[75vw] max-w-4xl max-h-[90vh] overflow-y-auto overflow-x-hidden apple-glass rounded-3xl p-6 sm:p-10 md:p-12 border border-white/20 shadow-2xl z-[1001]"
         style={{ overscrollBehavior: 'contain' }}
@@ -118,6 +121,7 @@ export default function ProjectDetailModal() {
         {/* Apple Pill Close Button */}
         <button
           onClick={handleClose}
+          aria-label="Close project details"
           className="absolute top-6 right-6 font-mono text-xs tracking-widest text-white/70 hover:text-white px-4 py-2 border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 rounded-full transition-all uppercase z-10 cursor-pointer"
         >
           CLOSE ✕
@@ -134,7 +138,7 @@ export default function ProjectDetailModal() {
             </span>
           </div>
 
-          <h2 className="font-outfit font-black text-2xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mt-3">
+          <h2 id="modal-project-title" className="font-outfit font-black text-2xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mt-3">
             {project.title}
           </h2>
           <p className="font-mono text-xs sm:text-sm tracking-wider text-blue-300 font-medium">

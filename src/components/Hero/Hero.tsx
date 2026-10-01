@@ -45,7 +45,7 @@ export default function Hero() {
   return (
     <section 
       ref={container} 
-      id="hero"
+      id="home"
       className="relative w-full min-h-screen flex flex-col items-center justify-center pointer-events-auto px-6 py-28 overflow-hidden bg-transparent"
     >
       {/* Apple Subtle Glow */}
@@ -62,15 +62,15 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Apple Keynote Headline */}
-        <div className="flex flex-col items-center leading-none mb-6">
-          <h1 className="hero-name-first font-outfit font-black text-6xl sm:text-8xl md:text-9xl tracking-tight text-apple-gradient uppercase">
+        {/* Apple Keynote Headline - Single Semantic H1 */}
+        <h1 className="flex flex-col items-center leading-none mb-6">
+          <span className="hero-name-first font-outfit font-black text-6xl sm:text-8xl md:text-9xl tracking-tight text-apple-gradient uppercase">
             {siteConfig.name.split(' ')[0]}
-          </h1>
-          <h1 className="hero-name-last font-outfit font-black text-6xl sm:text-8xl md:text-9xl tracking-tight text-apple-blue-gradient uppercase -mt-2 md:-mt-6">
+          </span>
+          <span className="hero-name-last font-outfit font-black text-6xl sm:text-8xl md:text-9xl tracking-tight text-apple-blue-gradient uppercase -mt-2 md:-mt-6">
             {siteConfig.name.split(' ')[1]}
-          </h1>
-        </div>
+          </span>
+        </h1>
 
         {/* Role & Tagline */}
         <div className="max-w-2xl flex flex-col items-center gap-4 mt-2">

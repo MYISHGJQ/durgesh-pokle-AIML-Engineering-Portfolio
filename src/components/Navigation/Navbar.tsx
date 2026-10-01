@@ -3,22 +3,22 @@ import { useSectionObserver } from '../../hooks/useSectionObserver';
 import { cn } from '../../utils/cn';
 
 const sectionIds = [
-  'hero',
-  'beginning',
+  'home',
+  'about',
   'journey',
   'projects',
-  'skills-matrix',
+  'skills',
   'certifications',
   'education',
   'contact',
 ];
 
 const navItems = [
-  { id: 'hero', label: 'HOME' },
-  { id: 'beginning', label: 'ABOUT' },
+  { id: 'home', label: 'HOME' },
+  { id: 'about', label: 'ABOUT' },
   { id: 'journey', label: 'JOURNEY' },
   { id: 'projects', label: 'PROJECTS' },
-  { id: 'skills-matrix', label: 'SKILLS' },
+  { id: 'skills', label: 'SKILLS' },
   { id: 'certifications', label: 'CERTIFICATIONS' },
   { id: 'education', label: 'EDUCATION' },
   { id: 'contact', label: 'CONTACT' },
@@ -31,7 +31,8 @@ export default function Navbar() {
   if (!bootComplete) return null;
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
+    const targetId = id === 'hero' ? 'home' : id === 'beginning' ? 'about' : id === 'skills-matrix' ? 'skills' : id;
+    const element = document.getElementById(targetId) || document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -43,7 +44,8 @@ export default function Navbar() {
         
         {/* Left Column: DP Logo & Title */}
         <button 
-          onClick={() => scrollToSection('hero')}
+          onClick={() => scrollToSection('home')}
+          aria-label="Scroll to home section"
           className="group flex items-center gap-2.5 sm:gap-3 text-left focus:outline-none shrink-0"
         >
           <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center font-outfit font-black text-xs text-white">

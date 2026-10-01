@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://durgesh-pokle-aiml-engineer-portfolio.vercel.app/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://durgesh-pokle-aiml-engineer-portfolio.vercel.app/profile.jpg</image:loc>
+      <image:title>Durgesh Pokle - AI and Machine Learning Engineer</image:title>
+      <image:caption>Professional portrait of Durgesh Pokle, Artificial Intelligence and Machine Learning Engineer</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://durgesh-pokle-aiml-engineer-portfolio.vercel.app/og-image.jpg</image:loc>
+      <image:title>Durgesh Pokle AI and ML Engineering Portfolio</image:title>
+    </image:image>
+  </url>
+</urlset>

@@ -78,7 +78,7 @@ export default function SkillsMatrix() {
   return (
     <section 
       ref={container} 
-      id="skills-matrix" 
+      id="skills" 
       className="relative w-full min-h-screen pointer-events-auto px-6 py-24 sm:py-32 bg-transparent overflow-hidden border-t border-white/10"
     >
       {/* Section Header */}

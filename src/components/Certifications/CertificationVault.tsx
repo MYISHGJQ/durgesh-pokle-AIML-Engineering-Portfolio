@@ -106,6 +106,7 @@ export default function CertificationVault() {
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs tracking-[0.3em] uppercase mb-4">
           06 / KNOWLEDGE ARCHIVE
         </div>
+        <h2 className="sr-only">Certifications</h2>
         <div className="w-full max-w-4xl px-2 my-2">
           <StrokeText 
             text="DIGITAL CERTIFICATION ARCHIVE"
@@ -160,6 +161,9 @@ export default function CertificationVault() {
       {selectedCert && (
         <div 
           onClick={() => setSelectedCert(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="cert-modal-title"
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
         >
           <div 
@@ -169,7 +173,8 @@ export default function CertificationVault() {
             {/* Close Button */}
             <button 
               onClick={() => setSelectedCert(null)}
-              className="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-mono text-xs transition-colors z-20"
+              aria-label="Close certificate preview"
+              className="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-mono text-xs transition-colors z-20 cursor-pointer"
             >
               ✕
             </button>
@@ -190,14 +195,18 @@ export default function CertificationVault() {
             <div className="w-full rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-white">
               <img 
                 src={selectedCert.image} 
-                alt={selectedCert.name}
+                alt={`${selectedCert.name} - ${selectedCert.organization} certificate document`}
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-contain display-block"
               />
             </div>
 
             {/* Certificate Meta Details */}
             <div className="flex flex-col gap-3">
-              <h3 className="font-outfit font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
+              <h3 id="cert-modal-title" className="font-outfit font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
                 {selectedCert.name}
               </h3>
               <div className="flex flex-wrap gap-2">

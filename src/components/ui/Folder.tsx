@@ -84,7 +84,17 @@ export default function Folder({
   return (
     <div className="folder-wrapper">
       <div 
+        role="button"
+        tabIndex={0}
+        aria-expanded={isOpen}
+        aria-label={`${title} certificates folder - ${isOpen ? 'open' : 'closed'}, contains ${certificates.length} certificates`}
         onClick={toggleFolder}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleFolder();
+          }
+        }}
         className={`folder-container ${isOpen ? 'is-open' : ''}`}
       >
         {/* Back Cover */}
@@ -101,6 +111,9 @@ export default function Folder({
             return (
               <div 
                 key={cert.id}
+                role="button"
+                tabIndex={isOpen ? 0 : -1}
+                aria-label={`View certificate: ${cert.name} issued by ${cert.organization}`}
                 style={getCertStyle(i, certificates.length, isHovered)}
                 onMouseEnter={() => setHoveredCertId(cert.id)}
                 onMouseLeave={() => setHoveredCertId(null)}
@@ -108,12 +121,21 @@ export default function Folder({
                   e.stopPropagation();
                   onSelectCertificate(cert);
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onSelectCertificate(cert);
+                  }
+                }}
                 className={`cert-paper ${isHovered ? 'is-hovered' : ''}`}
                 title={cert.name}
               >
                 <img 
                   src={cert.image} 
-                  alt={cert.name} 
+                  alt={`${cert.name} - ${cert.organization} verified certificate`}
+                  loading="lazy"
+                  decoding="async" 
                 />
               </div>
             );

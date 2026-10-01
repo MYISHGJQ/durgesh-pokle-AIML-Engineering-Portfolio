@@ -71,7 +71,7 @@ export default function Beginning() {
   return (
     <section 
       ref={container} 
-      id="beginning"
+      id="about"
       className="relative w-full pointer-events-auto px-6 py-20 sm:py-32 bg-transparent border-y border-white/5 overflow-hidden"
     >
       {/* Background Radial Glow */}
@@ -87,7 +87,11 @@ export default function Beginning() {
               {/* Photo */}
               <img 
                 src="/profile.jpg" 
-                alt="Durgesh Pokle - AI & ML Engineer"
+                alt="Durgesh Pokle - AI and Machine Learning Engineer"
+                width={400}
+                height={500}
+                loading="eager"
+                decoding="async"
                 className="w-full h-full object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               {/* Subtle glass gradient overlay at bottom */}
