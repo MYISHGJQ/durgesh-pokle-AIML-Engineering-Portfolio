@@ -5,6 +5,7 @@ import { useStore } from '../../store';
 import { certifications } from '../../data/certifications';
 import Folder from '../ui/Folder';
 import StrokeText from '../ui/StrokeText';
+import CertificatePreviewModal from './CertificatePreviewModal';
 import type { Certification } from '../../types';
 
 export default function CertificationVault() {
@@ -157,77 +158,12 @@ export default function CertificationVault() {
         ))}
       </div>
 
-      {/* Premium Full-Screen Certificate Preview Modal */}
+      {/* Premium Full-Screen Certificate Preview Modal (Portal rendered & viewport centered) */}
       {selectedCert && (
-        <div 
-          onClick={() => setSelectedCert(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="cert-modal-title"
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
-        >
-          <div 
-            onClick={(e) => e.stopPropagation()}
-            className="apple-glass rounded-3xl p-6 sm:p-10 border border-white/20 shadow-2xl max-w-3xl w-full relative flex flex-col gap-6 max-h-[90vh] overflow-y-auto"
-          >
-            {/* Close Button */}
-            <button 
-              onClick={() => setSelectedCert(null)}
-              aria-label="Close certificate preview"
-              className="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-mono text-xs transition-colors z-20 cursor-pointer"
-            >
-              ✕
-            </button>
-
-            {/* Credential Header */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 pr-10">
-              <span className="font-mono text-xs font-semibold tracking-widest text-blue-300 uppercase bg-blue-500/20 px-3.5 py-1.5 border border-blue-500/30 rounded-full">
-                {selectedCert.organization}
-              </span>
-              {selectedCert.date && (
-                <span className="font-mono text-xs text-white/50">
-                  ISSUED: {selectedCert.date.toUpperCase()}
-                </span>
-              )}
-            </div>
-
-            {/* Full High-Res Certificate Image */}
-            <div className="w-full rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-white">
-              <img 
-                src={selectedCert.image} 
-                alt={`${selectedCert.name} - ${selectedCert.organization} certificate document`}
-                width={800}
-                height={600}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto object-contain display-block"
-              />
-            </div>
-
-            {/* Certificate Meta Details */}
-            <div className="flex flex-col gap-3">
-              <h3 id="cert-modal-title" className="font-outfit font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
-                {selectedCert.name}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {selectedCert.skillsCovered.map((skill) => (
-                  <span key={skill} className="text-xs font-mono text-blue-300 border border-blue-500/30 bg-blue-500/10 px-3 py-1 rounded-full uppercase font-medium">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Footer Close CTA */}
-            <button 
-              onClick={() => setSelectedCert(null)}
-              className="w-full rounded-full bg-white text-black font-mono text-xs tracking-widest font-semibold uppercase py-3.5 hover:bg-white/90 transition-all shadow-xl"
-            >
-              CLOSE PREVIEW
-            </button>
-
-          </div>
-        </div>
+        <CertificatePreviewModal
+          cert={selectedCert}
+          onClose={() => setSelectedCert(null)}
+        />
       )}
     </section>
   );
