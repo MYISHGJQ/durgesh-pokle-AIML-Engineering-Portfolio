@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
   tagline: "I don't just build software. I build intelligence.",
   mission:
     'A B.Tech student specializing in Artificial Intelligence and Machine Learning, with a foundation in Mechanical Engineering and hands-on experience across AI, web development, automation, engineering systems, and creative technology.',
-  email: 'durgeshpokle@example.com', // Replace with real email
+  email: 'durgeshpokle.20@gmail.com',
   stats: {
     projectsBuilt: 5,
     certifications: 7,

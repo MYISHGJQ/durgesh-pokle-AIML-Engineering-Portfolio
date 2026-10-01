@@ -127,7 +127,7 @@ export default function ContactPortal() {
               
               <div className="flex flex-col gap-2">
                 <label className="font-mono text-[0.65rem] tracking-widest text-white/50 uppercase font-semibold">YOUR EMAIL</label>
-                <input required type="email" placeholder="durgeshpokle@example.com" className="bg-white/5 border border-white/10 p-4 text-white focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all font-mono text-xs rounded-2xl" />
+                <input required type="email" placeholder="your.email@example.com" className="bg-white/5 border border-white/10 p-4 text-white focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all font-mono text-xs rounded-2xl" />
               </div>
 
               <div className="flex flex-col gap-2">
