@@ -279,13 +279,57 @@ export default function CertificatePreviewModal({ cert, onClose }: CertificatePr
           </div>
         </div>
 
-        {/* Footer Close CTA */}
-        <button
-          onClick={handleClose}
-          className="w-full rounded-full bg-white text-black font-mono text-xs tracking-widest font-semibold uppercase py-3.5 hover:bg-white/90 transition-all shadow-xl cursor-pointer"
-        >
-          CLOSE PREVIEW
-        </button>
+        {/* Footer Actions */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 w-full pt-1">
+          {cert.verificationUrl && (
+            <button
+              type="button"
+              onClick={() => {
+                window.open(cert.verificationUrl, '_blank', 'noopener,noreferrer');
+              }}
+              aria-label="Verify certificate"
+              title="Open official certificate verification"
+              className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 hover:text-blue-300 font-mono text-xs tracking-widest font-semibold uppercase py-3.5 px-4 border border-blue-500/30 hover:border-blue-400/60 shadow-[0_0_15px_rgba(59,130,246,0.15)] hover:shadow-[0_0_25px_rgba(59,130,246,0.35)] transition-all duration-300 cursor-pointer active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+            >
+              <svg
+                className="w-4 h-4 flex-shrink-0 text-blue-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+              <span>VERIFY CERTIFICATE</span>
+              <svg
+                className="w-3.5 h-3.5 flex-shrink-0 opacity-70 text-blue-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </button>
+          )}
+
+          <button
+            type="button"
+            onClick={handleClose}
+            className={`w-full ${cert.verificationUrl ? 'sm:flex-1' : ''} rounded-full bg-white text-black font-mono text-xs tracking-widest font-semibold uppercase py-3.5 hover:bg-white/90 transition-all shadow-xl cursor-pointer active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white`}
+          >
+            CLOSE PREVIEW
+          </button>
+        </div>
       </div>
     </div>,
     document.body

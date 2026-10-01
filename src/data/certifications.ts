@@ -17,6 +17,7 @@ export const certifications: Certification[] = [
     date: 'December 2025',
     skillsCovered: ['Databases', 'SQL', 'Data Modeling'],
     image: '/certificates/cert-meta-db.png',
+    verificationUrl: 'https://www.coursera.org/account/accomplishments/verify/SQIH158FT0JP',
     featured: true,
   },
   {
@@ -26,6 +27,7 @@ export const certifications: Certification[] = [
     date: 'December 2025',
     skillsCovered: ['Git', 'GitHub', 'Version Control'],
     image: '/certificates/cert-google-git.png',
+    verificationUrl: 'https://www.coursera.org/account/accomplishments/verify/UUH5YOC92KTP',
     featured: true,
   },
   {
@@ -35,6 +37,7 @@ export const certifications: Certification[] = [
     date: 'June 2025',
     skillsCovered: ['Linux', 'Command Line', 'OS Fundamentals'],
     image: '/certificates/cert-google-linux.png',
+    verificationUrl: 'https://www.coursera.org/account/accomplishments/verify/SDX8FG4NSQ8H',
     featured: true,
   },
   {
@@ -44,6 +47,7 @@ export const certifications: Certification[] = [
     date: 'August 2026',
     skillsCovered: ['Data Analytics', 'Forensic Technology', 'Data Analysis'],
     image: '/certificates/cert-deloitte-da.png',
+    verificationUrl: 'https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_6a8f2ef82c00450588b90ddd_1787772577064_completion_certificate.pdf',
     featured: true,
   },
   {
@@ -53,6 +57,7 @@ export const certifications: Certification[] = [
     date: 'April 2026',
     skillsCovered: ['Cybersecurity', 'Cloud Computing', 'Virtualization', 'Security+'],
     image: '/certificates/cert-infosys-security.png',
+    verificationUrl: 'https://validate.onwingspan.com/',
     featured: true,
   },
   {
@@ -62,6 +67,7 @@ export const certifications: Certification[] = [
     date: 'April 2026',
     skillsCovered: ['AWS', 'Machine Learning', 'AI/ML Services', 'Cloud AI'],
     image: '/certificates/cert-infosys-ml.png',
+    verificationUrl: 'https://validate.onwingspan.com/',
     featured: true,
   },
 ];

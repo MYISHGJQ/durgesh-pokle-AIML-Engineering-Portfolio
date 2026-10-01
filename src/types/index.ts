@@ -75,6 +75,7 @@ export interface Certification {
   date: string;
   skillsCovered: string[];
   credentialLink?: string;
+  verificationUrl?: string;
   image?: string;
   featured: boolean;
 }
