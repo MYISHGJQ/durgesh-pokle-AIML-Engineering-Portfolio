@@ -24,9 +24,27 @@ const navItems = [
   { id: 'contact', label: 'CONTACT' },
 ];
 
+import { useEffect } from 'react';
+
 export default function Navbar() {
   const bootComplete = useStore((state) => state.bootComplete);
   const activeSection = useSectionObserver(sectionIds);
+  const terminalOpen = useStore((state) => state.terminalOpen);
+  const setTerminalOpen = useStore((state) => state.setTerminalOpen);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === '`' || e.key === '~') {
+        const activeTag = document.activeElement?.tagName;
+        if (activeTag !== 'INPUT' && activeTag !== 'TEXTAREA') {
+          e.preventDefault();
+          setTerminalOpen(!terminalOpen);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [terminalOpen, setTerminalOpen]);
 
   if (!bootComplete) return null;
 
@@ -58,29 +76,42 @@ export default function Navbar() {
         </button>
 
         {/* Center / Right Column: Direct Navigation Links */}
-        <nav className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 max-w-full">
-          {navItems.map((item) => {
-            const isActive = activeSection === item.id;
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <nav className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 max-w-full">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
 
-            return (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={cn(
-                  "relative font-mono text-[0.65rem] lg:text-xs tracking-wider uppercase whitespace-nowrap px-2.5 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 focus:outline-none",
-                  isActive
-                    ? "bg-white/15 text-white font-semibold border border-white/20 shadow-sm"
-                    : "text-white/60 hover:text-white hover:bg-white/5 font-medium"
-                )}
-              >
-                {isActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shrink-0"></span>
-                )}
-                <span>{item.label}</span>
-              </button>
-            );
-          })}
-        </nav>
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={cn(
+                    "relative font-mono text-[0.65rem] lg:text-xs tracking-wider uppercase whitespace-nowrap px-2.5 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 focus:outline-none",
+                    isActive
+                      ? "bg-white/15 text-white font-semibold border border-white/20 shadow-sm"
+                      : "text-white/60 hover:text-white hover:bg-white/5 font-medium"
+                  )}
+                >
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shrink-0"></span>
+                  )}
+                  <span>{item.label}</span>
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* Discreet Terminal Trigger (Easter Egg #1) */}
+          <button
+            type="button"
+            onClick={() => setTerminalOpen(true)}
+            aria-label="Open System Terminal"
+            title="DURGESH.OS Terminal (or press ~)"
+            className="shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/[0.06] hover:bg-cyan-500/20 text-white/50 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 flex items-center justify-center font-mono text-[10px] transition-all cursor-pointer hover:shadow-[0_0_10px_rgba(6,182,212,0.3)] active:scale-95"
+          >
+            &gt;_
+          </button>
+        </div>
 
       </div>
     </header>

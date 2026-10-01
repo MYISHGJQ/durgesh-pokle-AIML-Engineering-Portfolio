@@ -8,6 +8,7 @@ import { socialLinks } from '../../data/socialLinks';
 export default function ContactPortal() {
   const container = useRef<HTMLDivElement>(null);
   const bootComplete = useStore((state) => state.bootComplete);
+  const showProtocolToast = useStore((state) => state.showProtocolToast);
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
 
   useGSAP(() => {
@@ -59,8 +60,36 @@ export default function ContactPortal() {
         
         {/* Left Column: Messaging */}
         <div className="flex flex-col">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs tracking-[0.3em] uppercase mb-6 self-start">
-            08 / GET IN TOUCH
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs tracking-[0.3em] uppercase">
+              08 / GET IN TOUCH
+            </div>
+
+            {/* Easter Egg #5: Subtle status node indicator */}
+            <button
+              type="button"
+              onClick={() => {
+                showProtocolToast({
+                  id: 'contact-protocol-easter-egg',
+                  title: 'CONNECTION REQUEST DETECTED',
+                  subtitle: 'STATUS: READY',
+                  protocolNum: '05 / 05',
+                  actionText: 'ESTABLISH CONNECTION',
+                  onAction: () => {
+                    const emailLink = document.getElementById('contact-direct-email');
+                    if (emailLink) {
+                      emailLink.focus();
+                      emailLink.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
+                });
+              }}
+              title="System Node Status: Available"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-500/40 text-[10px] font-mono tracking-wider text-white/50 hover:text-cyan-300 transition-all cursor-pointer active:scale-95"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>NODE: READY</span>
+            </button>
           </div>
 
           <h2 className="font-outfit font-black text-5xl sm:text-7xl text-white leading-none tracking-tight mb-6 uppercase">
@@ -75,8 +104,9 @@ export default function ContactPortal() {
 
           <div className="flex flex-col gap-4 font-mono text-xs tracking-wider">
             <a 
+              id="contact-direct-email"
               href={`mailto:${siteConfig.email}`} 
-              className="flex items-center gap-4 text-white hover:text-blue-400 transition-colors p-4.5 apple-glass rounded-2xl border border-white/15 hover:border-blue-500/40 shadow-xl"
+              className="flex items-center gap-4 text-white hover:text-blue-400 transition-colors p-4.5 apple-glass rounded-2xl border border-white/15 hover:border-blue-500/40 shadow-xl focus:outline-none focus:border-cyan-400"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
               <span className="font-semibold">{siteConfig.email.toUpperCase()}</span>

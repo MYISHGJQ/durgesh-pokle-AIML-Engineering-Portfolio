@@ -1,5 +1,14 @@
 import { create } from 'zustand';
 
+export interface ProtocolToast {
+  id: string;
+  title: string;
+  subtitle: string;
+  protocolNum?: string;
+  actionText?: string;
+  onAction?: () => void;
+}
+
 interface AppState {
   bootComplete: boolean;
   setBootComplete: (status: boolean) => void;
@@ -11,6 +20,11 @@ interface AppState {
   setMenuOpen: (open: boolean) => void;
   selectedProjectId: string | null;
   setSelectedProjectId: (id: string | null) => void;
+  terminalOpen: boolean;
+  setTerminalOpen: (open: boolean) => void;
+  activeToast: ProtocolToast | null;
+  showProtocolToast: (toast: ProtocolToast) => void;
+  clearProtocolToast: () => void;
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -24,5 +38,10 @@ export const useStore = create<AppState>((set) => ({
   setMenuOpen: (open) => set({ menuOpen: open }),
   selectedProjectId: null,
   setSelectedProjectId: (id) => set({ selectedProjectId: id }),
+  terminalOpen: false,
+  setTerminalOpen: (open) => set({ terminalOpen: open }),
+  activeToast: null,
+  showProtocolToast: (toast) => set({ activeToast: toast }),
+  clearProtocolToast: () => set({ activeToast: null }),
 }));
 

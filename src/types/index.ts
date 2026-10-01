@@ -155,6 +155,7 @@ export type SectionId =
   | 'neural-network'
   | 'about'
   | 'projects'
+  | 'system-lab'
   | 'skills'
   | 'certifications'
   | 'achievements'

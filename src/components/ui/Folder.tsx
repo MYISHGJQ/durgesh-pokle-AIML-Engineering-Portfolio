@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useStore } from '../../store';
 import type { Certification } from '../../types';
 import './Folder.css';
 
@@ -15,6 +16,7 @@ export default function Folder({
   certificates,
   onSelectCertificate,
 }: FolderProps) {
+  const showProtocolToast = useStore((state) => state.showProtocolToast);
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredCertId, setHoveredCertId] = useState<string | null>(null);
 
@@ -146,7 +148,19 @@ export default function Folder({
         <div className="folder-front">
           {/* Header */}
           <div className="flex items-center justify-between w-full">
-            <div className="w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center font-mono text-xs text-blue-400 font-bold">
+            <div 
+              onClick={(e) => {
+                e.stopPropagation();
+                showProtocolToast({
+                  id: 'classified-cert-layer',
+                  title: 'CLASSIFIED: SYSTEM ACCESS GRANTED',
+                  subtitle: '"You found the hidden layer."',
+                  protocolNum: '03 / 05',
+                });
+              }}
+              title="Classified archive layer"
+              className="w-8 h-8 rounded-full bg-blue-500/20 hover:bg-blue-500/35 border border-blue-500/30 flex items-center justify-center font-mono text-xs text-blue-400 font-bold cursor-pointer transition-transform hover:scale-110 active:scale-95"
+            >
               📁
             </div>
             <span className="font-mono text-[0.65rem] text-white/60 uppercase tracking-widest bg-white/5 px-2.5 py-1 rounded-full border border-white/10">

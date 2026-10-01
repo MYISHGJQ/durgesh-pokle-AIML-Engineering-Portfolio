@@ -9,6 +9,7 @@ import Hero from './components/Hero/Hero';
 import Beginning from './components/Beginning/Beginning';
 import JourneyMilestones from './components/Journey/JourneyMilestones';
 import ProjectUniverseUI from './components/Projects/ProjectUniverseUI';
+import SystemLab from './components/SystemLab/SystemLab';
 import SkillsMatrix from './components/Skills/SkillsMatrix';
 import CertificationVault from './components/Certifications/CertificationVault';
 import EducationJourney from './components/Education/EducationJourney';
@@ -16,6 +17,8 @@ import CommandCenter from './components/CommandCenter/CommandCenter';
 import FutureVision from './components/FutureVision/FutureVision';
 import ContactPortal from './components/Contact/ContactPortal';
 import ProjectDetailModal from './components/Projects/ProjectDetailModal';
+import SystemTerminal from './components/Protocols/SystemTerminal';
+import ProtocolToast from './components/Protocols/ProtocolToast';
 
 function ScrollSync() {
   const setScrollProgress = useStore((state) => state.setScrollProgress);
@@ -68,6 +71,12 @@ function App() {
       {/* Project Details Modal */}
       <ProjectDetailModal />
       
+      {/* System Terminal Overlay (Easter Egg #1) */}
+      <SystemTerminal />
+
+      {/* Protocol Toast Notifications for Easter Eggs */}
+      <ProtocolToast />
+
       {/* Main Narrative Flow */}
       <main className="relative z-10 w-full flex flex-col items-center">
         {/* Section 1: Hero */}
@@ -82,7 +91,10 @@ function App() {
         {/* Section 4: Projects Showcase */}
         <ProjectUniverseUI />
 
-        {/* Section 5: Technical Skills Showcase */}
+        {/* Section 5: Interactive System Lab */}
+        <SystemLab />
+
+        {/* Section 6: Technical Skills Showcase */}
         <SkillsMatrix />
 
         {/* Section 6: Knowledge Archive (Certifications) */}

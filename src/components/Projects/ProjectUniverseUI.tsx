@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useStore } from '../../store';
@@ -6,7 +6,23 @@ import { projects } from '../../data/projects';
 
 export default function ProjectUniverseUI() {
   const container = useRef<HTMLDivElement>(null);
-  const { bootComplete, setSelectedProjectId } = useStore();
+  const { bootComplete, setSelectedProjectId, showProtocolToast } = useStore();
+  const [dtBadgeClicks, setDtBadgeClicks] = useState(0);
+
+  const handleDigitalTwinBadgeClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const nextCount = dtBadgeClicks + 1;
+    setDtBadgeClicks(nextCount);
+    if (nextCount === 3) {
+      setDtBadgeClicks(0);
+      showProtocolToast({
+        id: 'diagnostic-mode',
+        title: 'DIAGNOSTIC MODE: SYSTEM CORE ACCESS',
+        subtitle: 'Subsystem telemetry synchronizing... All parameters nominal.',
+        protocolNum: '04 / 05',
+      });
+    }
+  };
 
   useGSAP(() => {
     if (!bootComplete) return;
@@ -144,7 +160,13 @@ export default function ProjectUniverseUI() {
                     <span className="font-mono text-xs font-bold tracking-widest text-white/40">
                       0{i + 1}
                     </span>
-                    <span className={`font-mono text-xs tracking-widest px-3.5 py-1.5 border uppercase rounded-full font-medium ${theme.badgeBg}`}>
+                    <span 
+                      onClick={project.id === 'ai-digital-twin' ? handleDigitalTwinBadgeClick : undefined}
+                      title={project.id === 'ai-digital-twin' ? 'AI Digital Twin System Core' : undefined}
+                      className={`font-mono text-xs tracking-widest px-3.5 py-1.5 border uppercase rounded-full font-medium ${theme.badgeBg} ${
+                        project.id === 'ai-digital-twin' ? 'cursor-pointer select-none active:scale-95 hover:border-cyan-400' : ''
+                      }`}
+                    >
                       {theme.badge}
                     </span>
                     <span className="font-mono text-[0.65rem] tracking-widest text-white/40 uppercase bg-white/5 border border-white/10 px-3 py-1 rounded-full ml-auto">

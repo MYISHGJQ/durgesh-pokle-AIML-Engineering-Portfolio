@@ -6,6 +6,7 @@ import { useStore } from '../../store';
 export default function Beginning() {
   const container = useRef<HTMLDivElement>(null);
   const bootComplete = useStore((state) => state.bootComplete);
+  const showProtocolToast = useStore((state) => state.showProtocolToast);
 
   useGSAP(() => {
     if (!bootComplete) return;
@@ -99,7 +100,24 @@ export default function Beginning() {
               
               {/* Name Tag Overlay */}
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl apple-glass border border-white/10 flex flex-col gap-1">
-                <span className="font-outfit font-extrabold text-white text-base tracking-wide uppercase">DURGESH POKLE</span>
+                <div className="flex items-center justify-between">
+                  <span className="font-outfit font-extrabold text-white text-base tracking-wide uppercase">DURGESH POKLE</span>
+                  {/* Subtle System Signal Dot (Easter Egg #2) */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      showProtocolToast({
+                        id: 'signal-about',
+                        title: 'SIGNAL DETECTED...',
+                        subtitle: 'AN UNREGISTERED SYSTEM RESPONSE HAS BEEN FOUND.\n"You\'re paying attention."',
+                        protocolNum: '02 / 05',
+                      });
+                    }}
+                    aria-label="System status beacon"
+                    title="System Node: Synchronized"
+                    className="w-2.5 h-2.5 rounded-full bg-cyan-400/80 hover:bg-cyan-300 transition-all hover:scale-150 cursor-pointer shadow-[0_0_8px_rgba(6,182,212,0.6)] focus:outline-none"
+                  ></button>
+                </div>
                 <span className="font-mono text-[0.65rem] text-blue-400 tracking-widest uppercase">AI & ML ENGINEER</span>
               </div>
             </div>
