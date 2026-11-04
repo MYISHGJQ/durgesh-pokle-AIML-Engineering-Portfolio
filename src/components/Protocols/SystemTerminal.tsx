@@ -12,6 +12,7 @@ export default function SystemTerminal() {
   const terminalOpen = useStore((state) => state.terminalOpen);
   const setTerminalOpen = useStore((state) => state.setTerminalOpen);
   const showProtocolToast = useStore((state) => state.showProtocolToast);
+  const setEditingWelcomeActive = useStore((state) => state.setEditingWelcomeActive);
 
   const [inputVal, setInputVal] = useState('');
   const [history, setHistory] = useState<LogItem[]>([
@@ -120,6 +121,12 @@ export default function SystemTerminal() {
           subtitle: '"Curiosity is a useful engineering skill."',
           protocolNum: '01 / 05',
         });
+        break;
+
+      case 'editing':
+      case 'edit':
+        setTerminalOpen(false);
+        setEditingWelcomeActive(true);
         break;
 
       case 'clear':

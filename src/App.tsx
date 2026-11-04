@@ -19,6 +19,7 @@ import ContactPortal from './components/Contact/ContactPortal';
 import ProjectDetailModal from './components/Projects/ProjectDetailModal';
 import SystemTerminal from './components/Protocols/SystemTerminal';
 import ProtocolToast from './components/Protocols/ProtocolToast';
+import EditingWelcomeScreen from './components/Protocols/EditingWelcomeScreen';
 
 function ScrollSync() {
   const setScrollProgress = useStore((state) => state.setScrollProgress);
@@ -73,6 +74,9 @@ function App() {
       
       {/* System Terminal Overlay (Easter Egg #1) */}
       <SystemTerminal />
+
+      {/* Editing Portfolio Cinematic Welcome Screen */}
+      <EditingWelcomeScreen />
 
       {/* Protocol Toast Notifications for Easter Eggs */}
       <ProtocolToast />

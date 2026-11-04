@@ -22,6 +22,8 @@ interface AppState {
   setSelectedProjectId: (id: string | null) => void;
   terminalOpen: boolean;
   setTerminalOpen: (open: boolean) => void;
+  editingWelcomeActive: boolean;
+  setEditingWelcomeActive: (active: boolean) => void;
   activeToast: ProtocolToast | null;
   showProtocolToast: (toast: ProtocolToast) => void;
   clearProtocolToast: () => void;
@@ -40,6 +42,8 @@ export const useStore = create<AppState>((set) => ({
   setSelectedProjectId: (id) => set({ selectedProjectId: id }),
   terminalOpen: false,
   setTerminalOpen: (open) => set({ terminalOpen: open }),
+  editingWelcomeActive: false,
+  setEditingWelcomeActive: (active) => set({ editingWelcomeActive: active }),
   activeToast: null,
   showProtocolToast: (toast) => set({ activeToast: toast }),
   clearProtocolToast: () => set({ activeToast: null }),
