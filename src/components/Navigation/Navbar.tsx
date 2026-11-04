@@ -57,20 +57,20 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-6xl pointer-events-auto">
+    <header className="fixed top-2.5 sm:top-6 left-1/2 -translate-x-1/2 z-40 w-[96%] sm:w-[95%] max-w-6xl pointer-events-auto">
       <div className="apple-navbar-container relative rounded-full">
         {/* Layer 1: Dedicated Apple Glass Background with Blur & Opacity Suppression */}
         <div className="apple-navbar-glass" aria-hidden="true" />
 
         {/* Layer 2: Navigation Content Layer */}
-        <div className="relative z-10 px-3.5 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-3 sm:gap-6">
+        <div className="relative z-10 px-2.5 sm:px-6 py-1.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-6">
           {/* Left Column: DP Logo & Title */}
           <button 
             onClick={() => scrollToSection('home')}
             aria-label="Scroll to home section"
-            className="group flex items-center gap-2.5 sm:gap-3 text-left focus:outline-none shrink-0"
+            className="group flex items-center gap-2 sm:gap-3 text-left focus:outline-none shrink-0"
           >
-            <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center font-outfit font-black text-xs text-white">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 group-hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center font-outfit font-black text-[11px] sm:text-xs text-white">
               DP
             </div>
             <div className="hidden lg:flex flex-col text-[0.65rem] font-mono tracking-widest leading-tight text-white/60">
@@ -80,8 +80,8 @@ export default function Navbar() {
           </button>
 
           {/* Center / Right Column: Direct Navigation Links */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <nav className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 max-w-full">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <nav className="flex items-center gap-0.5 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 max-w-full">
               {navItems.map((item) => {
                 const isActive = activeSection === item.id;
 
@@ -90,7 +90,7 @@ export default function Navbar() {
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
                     className={cn(
-                      "relative font-mono text-[0.65rem] lg:text-xs tracking-wider uppercase whitespace-nowrap px-2.5 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 focus:outline-none",
+                      "relative font-mono text-[0.6rem] sm:text-[0.65rem] lg:text-xs tracking-wider uppercase whitespace-nowrap px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 flex items-center gap-1 sm:gap-1.5 focus:outline-none",
                       isActive
                         ? "bg-white/15 text-white font-semibold border border-white/20 shadow-sm"
                         : "text-white/60 hover:text-white hover:bg-white/5 font-medium"

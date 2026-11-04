@@ -186,7 +186,7 @@ export default function SystemTerminal() {
             ? 'border-cyan-400 shadow-[0_0_60px_rgba(6,182,212,0.5)]' 
             : 'border-white/15'
         }`}
-        style={{ maxHeight: '85vh', height: '520px' }}
+        style={{ maxHeight: '85vh', height: 'min(520px, 80vh)' }}
       >
         {/* Terminal Title Bar */}
         <div className="bg-white/[0.04] border-b border-white/10 px-4 py-3 flex items-center justify-between select-none">

@@ -62,34 +62,34 @@ export default function CommandCenter() {
     <section 
       ref={container} 
       id="command-center" 
-      className="relative w-full min-h-screen pointer-events-auto px-6 py-24 sm:py-32 bg-transparent overflow-hidden border-t border-white/10"
+      className="relative w-full min-h-0 md:min-h-screen pointer-events-auto px-4 sm:px-6 py-12 sm:py-20 md:py-32 bg-transparent overflow-hidden border-t border-white/10"
     >
       {/* Section Header */}
-      <div className="max-w-6xl mx-auto mb-20 text-center flex flex-col items-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs tracking-[0.3em] uppercase mb-4">
+      <div className="max-w-6xl mx-auto mb-8 sm:mb-14 md:mb-20 text-center flex flex-col items-center">
+        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-[11px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4">
           08 / PORTFOLIO IMPACT
         </div>
-        <h2 className="font-outfit font-black text-4xl sm:text-6xl text-white tracking-tight uppercase">
+        <h2 className="font-outfit font-black text-2xl sm:text-4xl md:text-6xl text-white tracking-tight uppercase">
           METRICS & <span className="text-apple-blue-gradient">MILESTONES</span>
         </h2>
       </div>
 
       {/* Apple Bento Statistics Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {statItems.map((stat, i) => (
           <div 
             key={i} 
-            className="stat-typo-block apple-glass apple-glass-hover rounded-3xl p-8 border border-white/10 flex flex-col justify-between items-center text-center shadow-2xl"
+            className="stat-typo-block apple-glass apple-glass-hover rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10 flex flex-col justify-between items-center text-center shadow-2xl"
           >
-            <h3 className="font-outfit font-black text-7xl sm:text-8xl text-white tracking-tight leading-none mb-6">
+            <h3 className="font-outfit font-black text-4xl sm:text-6xl md:text-8xl text-white tracking-tight leading-none mb-2 sm:mb-4 md:mb-6">
               {stat.number}
             </h3>
             
-            <div className="border-t border-white/10 pt-4 w-full flex flex-col items-center">
-              <p className="font-outfit font-bold text-sm text-blue-400 uppercase tracking-wide mb-1">
+            <div className="border-t border-white/10 pt-2.5 sm:pt-4 w-full flex flex-col items-center">
+              <p className="font-outfit font-bold text-xs sm:text-sm text-blue-400 uppercase tracking-wide mb-0.5 sm:mb-1">
                 {stat.label}
               </p>
-              <p className="font-mono text-[0.65rem] text-white/50 tracking-wider font-light">
+              <p className="font-mono text-[0.6rem] sm:text-[0.65rem] text-white/50 tracking-wider font-light line-clamp-2 sm:line-clamp-none">
                 {stat.desc}
               </p>
             </div>

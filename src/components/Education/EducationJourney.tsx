@@ -59,23 +59,23 @@ export default function EducationJourney() {
     <section 
       ref={container} 
       id="education" 
-      className="relative w-full min-h-screen pointer-events-auto px-6 py-24 sm:py-32 bg-transparent overflow-hidden border-t border-white/10"
+      className="relative w-full min-h-0 md:min-h-screen pointer-events-auto px-4 sm:px-6 py-12 sm:py-20 md:py-32 bg-transparent overflow-hidden border-t border-white/10"
     >
       {/* Section Header */}
-      <div className="max-w-4xl mx-auto mb-20 text-center flex flex-col items-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs tracking-[0.3em] uppercase mb-4">
+      <div className="max-w-4xl mx-auto mb-8 sm:mb-14 md:mb-20 text-center flex flex-col items-center">
+        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-[11px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4">
           07 / ACADEMIC PATHWAY
         </div>
-        <h2 className="font-outfit font-black text-4xl sm:text-6xl text-white tracking-tight uppercase">
+        <h2 className="font-outfit font-black text-2xl sm:text-4xl md:text-6xl text-white tracking-tight uppercase">
           EDUCATION <span className="text-apple-blue-gradient">TIMELINE</span>
         </h2>
-        <p className="text-white/60 text-sm sm:text-base max-w-xl font-light leading-relaxed mt-3">
+        <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-xl font-light leading-relaxed mt-2 sm:mt-3">
           The formal academic journey from secondary school distinction to mechanical engineering and specialized AI & ML engineering.
         </p>
       </div>
 
       {/* Vertical Apple Timeline */}
-      <div className="max-w-4xl mx-auto relative border-l-2 border-white/15 pl-6 sm:pl-12 space-y-16">
+      <div className="max-w-4xl mx-auto relative border-l-2 border-white/15 pl-6 sm:pl-12 space-y-6 sm:space-y-10 md:space-y-16">
         {sortedEdu.map((edu) => {
           const isCurrent = edu.current;
 
@@ -89,42 +89,42 @@ export default function EducationJourney() {
               ></div>
 
               {/* Apple Timeline Card */}
-              <div className="apple-glass apple-glass-hover rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
+              <div className="apple-glass apple-glass-hover rounded-2xl sm:rounded-3xl p-4 sm:p-7 md:p-10 border border-white/10 shadow-2xl">
                 
                 {/* Year & Pill Badge */}
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                  <span className="font-mono text-xs font-bold tracking-widest text-blue-400 uppercase">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 sm:mb-4">
+                  <span className="font-mono text-[11px] sm:text-xs font-bold tracking-widest text-blue-400 uppercase">
                     {edu.year}
                   </span>
                   {isCurrent ? (
-                    <span className="font-mono text-xs tracking-widest px-3.5 py-1.5 bg-blue-500/20 border border-blue-500/30 text-blue-300 uppercase rounded-full font-medium">
+                    <span className="font-mono text-[10px] sm:text-xs tracking-widest px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-blue-500/20 border border-blue-500/30 text-blue-300 uppercase rounded-full font-medium">
                       CURRENTLY PURSUING
                     </span>
                   ) : (
-                    <span className="font-mono text-xs tracking-widest px-3.5 py-1.5 bg-white/5 border border-white/10 text-white/50 uppercase rounded-full font-medium">
+                    <span className="font-mono text-[10px] sm:text-xs tracking-widest px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-white/5 border border-white/10 text-white/50 uppercase rounded-full font-medium">
                       COMPLETED
                     </span>
                   )}
                 </div>
 
                 {/* Degree & Institution */}
-                <h3 className="font-outfit font-black text-2xl sm:text-3xl text-white uppercase tracking-tight mb-2">
+                <h3 className="font-outfit font-black text-xl sm:text-2xl md:text-3xl text-white uppercase tracking-tight mb-1 sm:mb-2">
                   {edu.degree}
                 </h3>
-                <p className="font-mono text-xs text-white/50 tracking-wider mb-4 font-medium">
+                <p className="font-mono text-[11px] sm:text-xs text-white/50 tracking-wider mb-2.5 sm:mb-4 font-medium">
                   {edu.institution} • {edu.location}
                 </p>
 
                 {/* Description */}
-                <p className="text-white/80 text-sm sm:text-base font-light leading-relaxed mb-6">
+                <p className="text-white/80 text-xs sm:text-sm md:text-base font-light leading-relaxed mb-3.5 sm:mb-6">
                   {edu.description}
                 </p>
 
                 {/* Milestones & Highlights */}
                 {edu.milestones && edu.milestones.length > 0 && (
-                  <div className="pt-4 border-t border-white/10 flex flex-wrap gap-2.5">
+                  <div className="pt-3 sm:pt-4 border-t border-white/10 flex flex-wrap gap-1.5 sm:gap-2.5">
                     {edu.milestones.map((milestone) => (
-                      <div key={milestone} className="flex items-center gap-2 font-mono text-xs text-white/80 bg-white/5 px-3.5 py-1.5 border border-white/10 rounded-full">
+                      <div key={milestone} className="flex items-center gap-1.5 sm:gap-2 font-mono text-[10px] sm:text-xs text-white/80 bg-white/5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 border border-white/10 rounded-full">
                         <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
                         <span>{milestone}</span>
                       </div>

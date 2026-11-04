@@ -137,6 +137,9 @@
 }
 
 @media (max-width: 768px) {
+  .folder-container {
+    margin-top: 65px;
+  }
   .folder-front {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);

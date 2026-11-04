@@ -174,25 +174,25 @@ export default function CertificatePreviewModal({ cert, onClose }: CertificatePr
         ref={modalRef}
         data-lenis-prevent
         onClick={(e) => e.stopPropagation()}
-        className="apple-glass rounded-3xl p-5 sm:p-8 md:p-10 border border-white/20 shadow-2xl relative flex flex-col gap-6 w-[94vw] sm:w-[90vw] max-w-[1000px] max-h-[88dvh] overflow-y-auto overflow-x-hidden z-[10000]"
+        className="apple-glass rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-white/20 shadow-2xl relative flex flex-col gap-4 sm:gap-6 w-[95vw] sm:w-[90vw] max-w-[1000px] max-h-[90dvh] sm:max-h-[88dvh] overflow-y-auto overflow-x-hidden z-[10000]"
         style={{ overscrollBehavior: 'contain' }}
       >
         {/* Close Button */}
         <button
           onClick={handleClose}
           aria-label="Close certificate preview"
-          className="absolute top-5 right-5 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-mono text-xs transition-colors z-20 cursor-pointer"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-mono text-xs transition-colors z-20 cursor-pointer"
         >
           ✕
         </button>
 
         {/* Credential Header */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 pr-12">
-          <span className="font-mono text-xs font-semibold tracking-widest text-blue-300 uppercase bg-blue-500/20 px-3.5 py-1.5 border border-blue-500/30 rounded-full">
+        <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-white/10 pb-3 sm:pb-4 pr-10 sm:pr-12">
+          <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-widest text-blue-300 uppercase bg-blue-500/20 px-2.5 sm:px-3.5 py-1 sm:py-1.5 border border-blue-500/30 rounded-full">
             {cert.organization}
           </span>
           {cert.date && (
-            <span className="font-mono text-xs text-white/50">
+            <span className="font-mono text-[11px] sm:text-xs text-white/50">
               ISSUED: {cert.date.toUpperCase()}
             </span>
           )}
@@ -201,7 +201,7 @@ export default function CertificatePreviewModal({ cert, onClose }: CertificatePr
         {/* Dedicated Fullscreen Target Wrapper: Only this container enters browser fullscreen */}
         <div
           ref={imageViewerRef}
-          className={`relative w-full rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center group/viewer transition-all ${
+          className={`relative w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center group/viewer transition-all ${
             isFullscreen
               ? 'bg-black w-screen h-screen max-w-none max-h-none border-0 rounded-none p-3 sm:p-6 md:p-10'
               : 'bg-white border border-white/20'
@@ -231,7 +231,7 @@ export default function CertificatePreviewModal({ cert, onClose }: CertificatePr
             className={
               isFullscreen
                 ? 'absolute top-5 right-5 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/80 hover:bg-black/95 text-white font-mono text-xs uppercase tracking-widest border border-white/30 backdrop-blur-xl shadow-2xl transition-all cursor-pointer hover:border-cyan-400'
-                : 'absolute top-3 right-3 z-20 p-2.5 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white border border-white/20 hover:border-cyan-400/60 backdrop-blur-md transition-all shadow-lg cursor-pointer hover:scale-105 active:scale-95 group/btn'
+                : 'absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-20 p-2 sm:p-2.5 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white border border-white/20 hover:border-cyan-400/60 backdrop-blur-md transition-all shadow-lg cursor-pointer hover:scale-105 active:scale-95 group/btn'
             }
           >
             {isFullscreen ? (
@@ -251,7 +251,7 @@ export default function CertificatePreviewModal({ cert, onClose }: CertificatePr
               </>
             ) : (
               <svg
-                className="w-4 h-4 text-white group-hover/btn:text-cyan-300 transition-colors"
+                className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white group-hover/btn:text-cyan-300 transition-colors"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -266,13 +266,13 @@ export default function CertificatePreviewModal({ cert, onClose }: CertificatePr
         </div>
 
         {/* Certificate Meta Details */}
-        <div className="flex flex-col gap-3">
-          <h3 id="cert-modal-title" className="font-outfit font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
+        <div className="flex flex-col gap-2 sm:gap-3">
+          <h3 id="cert-modal-title" className="font-outfit font-black text-xl sm:text-2xl md:text-3xl text-white uppercase tracking-tight">
             {cert.name}
           </h3>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {cert.skillsCovered.map((skill) => (
-              <span key={skill} className="text-xs font-mono text-blue-300 border border-blue-500/30 bg-blue-500/10 px-3 py-1 rounded-full uppercase font-medium">
+              <span key={skill} className="text-[11px] sm:text-xs font-mono text-blue-300 border border-blue-500/30 bg-blue-500/10 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase font-medium">
                 {skill}
               </span>
             ))}
@@ -280,7 +280,7 @@ export default function CertificatePreviewModal({ cert, onClose }: CertificatePr
         </div>
 
         {/* Footer Actions */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 w-full pt-1">
+        <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 w-full pt-1">
           {cert.verificationUrl && (
             <button
               type="button"
@@ -289,7 +289,7 @@ export default function CertificatePreviewModal({ cert, onClose }: CertificatePr
               }}
               aria-label="Verify certificate"
               title="Open official certificate verification"
-              className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 hover:text-blue-300 font-mono text-xs tracking-widest font-semibold uppercase py-3.5 px-4 border border-blue-500/30 hover:border-blue-400/60 shadow-[0_0_15px_rgba(59,130,246,0.15)] hover:shadow-[0_0_25px_rgba(59,130,246,0.35)] transition-all duration-300 cursor-pointer active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 hover:text-blue-300 font-mono text-[11px] sm:text-xs tracking-widest font-semibold uppercase py-3 sm:py-3.5 px-4 border border-blue-500/30 hover:border-blue-400/60 shadow-[0_0_15px_rgba(59,130,246,0.15)] hover:shadow-[0_0_25px_rgba(59,130,246,0.35)] transition-all duration-300 cursor-pointer active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
             >
               <svg
                 className="w-4 h-4 flex-shrink-0 text-blue-400"

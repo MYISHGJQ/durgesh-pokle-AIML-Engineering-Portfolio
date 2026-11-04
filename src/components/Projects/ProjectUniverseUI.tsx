@@ -124,25 +124,25 @@ export default function ProjectUniverseUI() {
     <section 
       ref={container} 
       id="projects"
-      className="relative w-full min-h-screen pointer-events-auto px-6 py-24 sm:py-32 bg-transparent overflow-hidden"
+      className="relative w-full min-h-0 md:min-h-screen pointer-events-auto px-4 sm:px-6 py-12 sm:py-20 md:py-32 bg-transparent overflow-hidden"
     >
       {/* Section Header */}
-      <div className="max-w-6xl mx-auto mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
+      <div className="max-w-6xl mx-auto mb-8 sm:mb-12 md:mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 border-b border-white/10 pb-4 sm:pb-6 md:pb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs tracking-[0.3em] uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-[11px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4">
             04 / PROJECT SHOWCASE
           </div>
-          <h2 className="font-outfit font-black text-4xl sm:text-6xl text-white tracking-tight uppercase">
+          <h2 className="font-outfit font-black text-2xl sm:text-4xl md:text-6xl text-white tracking-tight uppercase">
             WHAT I HAVE <span className="text-apple-blue-gradient">BUILT</span>
           </h2>
         </div>
-        <p className="text-white/60 text-sm sm:text-base max-w-md font-light leading-relaxed">
+        <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-md font-light leading-relaxed">
           Engineering solutions bridging physical mechanics, intelligent software algorithms, and automated systems.
         </p>
       </div>
 
       {/* Apple Bento Launch Grid */}
-      <div className="max-w-6xl mx-auto flex flex-col gap-12">
+      <div className="max-w-6xl mx-auto flex flex-col gap-6 sm:gap-8 md:gap-12">
         {projects.map((project, i) => {
           const theme = getProjectStyles(project.id);
           const isFeatured = project.featured && project.id === 'ai-digital-twin';
@@ -150,47 +150,47 @@ export default function ProjectUniverseUI() {
           return (
             <div 
               key={project.id}
-              className={`project-showcase-card apple-glass apple-glass-hover rounded-3xl p-8 md:p-12 border ${theme.border} relative overflow-hidden flex flex-col lg:flex-row gap-8 items-stretch bg-gradient-to-br ${theme.gradientBg} shadow-2xl`}
+              className={`project-showcase-card apple-glass apple-glass-hover rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 border ${theme.border} relative overflow-hidden flex flex-col lg:flex-row gap-5 sm:gap-8 items-stretch bg-gradient-to-br ${theme.gradientBg} shadow-2xl`}
             >
               {/* Left Details Column */}
               <div className="flex-1 flex flex-col justify-between">
                 <div>
                   {/* Top Status & Pill Badges */}
-                  <div className="flex flex-wrap items-center gap-3 mb-6">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                     <span className="font-mono text-xs font-bold tracking-widest text-white/40">
                       0{i + 1}
                     </span>
                     <span 
                       onClick={project.id === 'ai-digital-twin' ? handleDigitalTwinBadgeClick : undefined}
                       title={project.id === 'ai-digital-twin' ? 'AI Digital Twin System Core' : undefined}
-                      className={`font-mono text-xs tracking-widest px-3.5 py-1.5 border uppercase rounded-full font-medium ${theme.badgeBg} ${
+                      className={`font-mono text-[11px] sm:text-xs tracking-widest px-2.5 sm:px-3.5 py-1 sm:py-1.5 border uppercase rounded-full font-medium ${theme.badgeBg} ${
                         project.id === 'ai-digital-twin' ? 'cursor-pointer select-none active:scale-95 hover:border-cyan-400' : ''
                       }`}
                     >
                       {theme.badge}
                     </span>
-                    <span className="font-mono text-[0.65rem] tracking-widest text-white/40 uppercase bg-white/5 border border-white/10 px-3 py-1 rounded-full ml-auto">
+                    <span className="font-mono text-[0.6rem] sm:text-[0.65rem] tracking-widest text-white/40 uppercase bg-white/5 border border-white/10 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full ml-auto">
                       {theme.identityTag}
                     </span>
                   </div>
 
                   {/* Project Title & Category */}
-                  <h3 className="font-outfit font-black text-3xl sm:text-5xl text-white uppercase tracking-tight mb-2">
+                  <h3 className="font-outfit font-black text-2xl sm:text-3xl md:text-5xl text-white uppercase tracking-tight mb-1.5 sm:mb-2">
                     {project.title}
                   </h3>
-                  <p className={`font-mono text-xs tracking-wider mb-4 ${theme.tagText} font-semibold`}>
+                  <p className={`font-mono text-[11px] sm:text-xs tracking-wider mb-3 sm:mb-4 ${theme.tagText} font-semibold`}>
                     {project.subtitle} • {project.category}
                   </p>
 
                   {/* Description */}
-                  <p className="text-white/80 text-sm sm:text-base font-light leading-relaxed mb-6">
+                  <p className="text-white/80 text-xs sm:text-sm md:text-base font-light leading-relaxed mb-4 sm:mb-6">
                     {project.description}
                   </p>
 
                   {/* Tech Stack Pills */}
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6 md:mb-8">
                     {project.technologies.map(tech => (
-                      <span key={tech} className="text-xs font-mono text-white/80 border border-white/15 px-3.5 py-1.5 rounded-full bg-white/5 uppercase">
+                      <span key={tech} className="text-[0.65rem] sm:text-xs font-mono text-white/80 border border-white/15 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/5 uppercase">
                         {tech}
                       </span>
                     ))}
@@ -198,39 +198,39 @@ export default function ProjectUniverseUI() {
                 </div>
 
                 {/* Bottom Action Buttons */}
-                <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+                <div className="pt-4 sm:pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 sm:gap-4">
                   <button
                     onClick={() => setSelectedProjectId(project.id)}
-                    className="rounded-full bg-white hover:bg-white/90 text-black px-6 py-3 text-xs font-semibold tracking-widest uppercase transition-all flex items-center gap-2 shadow-lg hover:scale-105"
+                    className="rounded-full bg-white hover:bg-white/90 text-black px-4 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-xs font-semibold tracking-widest uppercase transition-all flex items-center gap-2 shadow-lg hover:scale-105 active:scale-95"
                   >
                     <span>EXPLORE PROJECT DETAILS</span>
                     <span>→</span>
                   </button>
 
-                  <span className="font-mono text-xs text-white/40 font-medium">{project.year}</span>
+                  <span className="font-mono text-[11px] sm:text-xs text-white/40 font-medium">{project.year}</span>
                 </div>
               </div>
 
               {/* Right Apple Media Frame */}
-              <div className="w-full lg:w-96 min-h-[240px] bg-black/60 backdrop-blur-xl border border-white/15 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden group">
-                <div className="flex justify-between items-center z-10 font-mono text-[0.65rem] text-white/50 uppercase tracking-widest border-b border-white/10 pb-3">
+              <div className="w-full lg:w-96 min-h-[150px] sm:min-h-[200px] lg:min-h-[240px] bg-black/60 backdrop-blur-xl border border-white/15 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 flex flex-col justify-between relative overflow-hidden group">
+                <div className="flex justify-between items-center z-10 font-mono text-[0.6rem] sm:text-[0.65rem] text-white/50 uppercase tracking-widest border-b border-white/10 pb-2.5 sm:pb-3">
                   <span>MEDIA FRAME</span>
                   <span className={`${theme.tagText} font-semibold`}>{project.category}</span>
                 </div>
 
-                <div className="z-10 my-6 flex flex-col items-center justify-center text-center p-4">
-                  <div className="w-14 h-14 rounded-full border border-white/20 bg-white/10 flex items-center justify-center font-mono text-sm font-bold text-white mb-3 shadow-inner">
+                <div className="z-10 my-2 sm:my-4 lg:my-6 flex flex-col items-center justify-center text-center p-2 sm:p-4">
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border border-white/20 bg-white/10 flex items-center justify-center font-mono text-xs sm:text-sm font-bold text-white mb-2 sm:mb-3 shadow-inner">
                     {isFeatured ? 'AI' : '0' + (i + 1)}
                   </div>
-                  <p className="font-outfit font-bold text-base text-white uppercase">
+                  <p className="font-outfit font-bold text-sm sm:text-base text-white uppercase">
                     {project.title}
                   </p>
-                  <p className="font-mono text-[0.65rem] text-white/40 mt-1">
+                  <p className="font-mono text-[0.6rem] sm:text-[0.65rem] text-white/40 mt-0.5 sm:mt-1">
                     READY FOR DEMO / SCREENSHOT INTEGRATION
                   </p>
                 </div>
 
-                <div className="z-10 font-mono text-[0.65rem] text-white/40 flex justify-between border-t border-white/10 pt-3">
+                <div className="z-10 font-mono text-[0.6rem] sm:text-[0.65rem] text-white/40 flex justify-between border-t border-white/10 pt-2.5 sm:pt-3">
                   <span>ASPECT RATIO 16:9</span>
                   <span className="text-blue-400 font-semibold">VIEW SPEC</span>
                 </div>

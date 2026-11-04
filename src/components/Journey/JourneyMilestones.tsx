@@ -91,53 +91,53 @@ export default function JourneyMilestones() {
     <section 
       ref={container} 
       id="journey" 
-      className="relative w-full min-h-screen pointer-events-auto px-6 py-24 sm:py-32 bg-transparent border-t border-white/10"
+      className="relative w-full min-h-0 md:min-h-screen pointer-events-auto px-4 sm:px-6 py-12 sm:py-20 md:py-32 bg-transparent border-t border-white/10"
     >
       <div className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center">
         
         {/* Section Header */}
-        <div className="text-center w-full max-w-4xl px-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs tracking-[0.3em] uppercase mb-4">
+        <div className="text-center w-full max-w-4xl px-2 sm:px-4 mb-8 sm:mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-[11px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4">
             03 / EVOLUTION NARRATIVE
           </div>
-          <h2 className="font-outfit font-black text-3xl sm:text-5xl text-white tracking-tight uppercase mb-4">
+          <h2 className="font-outfit font-black text-2xl sm:text-4xl md:text-5xl text-white tracking-tight uppercase mb-3 sm:mb-4">
             STRUCTURE <span className="text-white/40">→</span> SYSTEMS <span className="text-white/40">→</span> DATA <span className="text-apple-blue-gradient">→ INTELLIGENCE</span>
           </h2>
-          <p className="text-white/60 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
             The multi-phase transformation from mechanical hardware principles to intelligent machine learning systems.
           </p>
         </div>
 
         {/* Apple Bento Grid Showcase */}
         <div className="w-full max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full">
             {evolutionSteps.map((step, i) => (
               <div 
                 key={i} 
-                className="evolution-stage apple-glass apple-glass-hover rounded-3xl p-8 flex flex-col justify-between border border-white/10 relative overflow-hidden group shadow-xl"
+                className="evolution-stage apple-glass apple-glass-hover rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 flex flex-col justify-between border border-white/10 relative overflow-hidden group shadow-xl"
               >
                 <div>
-                  <div className="flex justify-between items-start mb-6">
-                    <span className={`font-mono text-xs tracking-widest font-semibold uppercase px-3 py-1 rounded-full border ${step.accent}`}>
+                  <div className="flex justify-between items-start mb-4 sm:mb-6 gap-2">
+                    <span className={`font-mono text-[11px] sm:text-xs tracking-widest font-semibold uppercase px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border ${step.accent}`}>
                       {step.phase}
                     </span>
-                    <span className="font-mono text-[0.65rem] tracking-widest text-white/40 uppercase bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+                    <span className="font-mono text-[0.6rem] sm:text-[0.65rem] tracking-widest text-white/40 uppercase bg-white/5 border border-white/10 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full">
                       {step.bgTag}
                     </span>
                   </div>
 
-                  <h3 className="font-outfit font-black text-2xl sm:text-3xl text-white mb-2 uppercase tracking-tight">
+                  <h3 className="font-outfit font-black text-xl sm:text-2xl md:text-3xl text-white mb-1.5 sm:mb-2 uppercase tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="font-mono text-xs text-white/50 tracking-wider mb-4">
+                  <p className="font-mono text-[11px] sm:text-xs text-white/50 tracking-wider mb-2.5 sm:mb-4">
                     {step.subtitle}
                   </p>
-                  <p className="text-white/70 text-sm font-light leading-relaxed">
+                  <p className="text-white/70 text-xs sm:text-sm font-light leading-relaxed">
                     {step.description}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between font-mono text-[0.65rem] text-white/40 uppercase tracking-widest">
+                <div className="mt-5 sm:mt-8 pt-3 sm:pt-4 border-t border-white/10 flex items-center justify-between font-mono text-[0.6rem] sm:text-[0.65rem] text-white/40 uppercase tracking-widest">
                   <span>EVOLUTION STEP 0{i + 1}</span>
                   <span className="text-blue-400 group-hover:translate-x-1 transition-transform">EXPLORE →</span>
                 </div>

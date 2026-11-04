@@ -48,7 +48,7 @@ export default function Hero() {
     <section 
       ref={container} 
       id="home"
-      className="relative w-full min-h-screen flex flex-col items-center justify-center pointer-events-auto px-6 py-28 overflow-hidden bg-transparent"
+      className="relative w-full min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pointer-events-auto px-4 sm:px-6 py-16 sm:py-24 md:py-28 overflow-hidden bg-transparent"
     >
       {/* Apple Subtle Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-blue-600/15 via-indigo-600/10 to-transparent rounded-full blur-[160px] pointer-events-none"></div>
@@ -57,44 +57,44 @@ export default function Hero() {
       <div className="relative z-10 max-w-5xl w-full flex flex-col items-center text-center">
         
         {/* Apple Pill Tag */}
-        <div className="hero-tag opacity-0 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/15 mb-8">
-          <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-          <span className="font-mono text-xs tracking-widest text-white/90 uppercase font-medium">
+        <div className="hero-tag opacity-0 inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/15 mb-4 sm:mb-6 md:mb-8">
+          <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-blue-500 animate-pulse"></span>
+          <span className="font-mono text-[11px] sm:text-xs tracking-widest text-white/90 uppercase font-medium">
             CREATING INTELLIGENT SYSTEMS
           </span>
         </div>
 
         {/* Apple Keynote Headline - Single Semantic H1 */}
-        <h1 className="flex flex-col items-center leading-none mb-6">
-          <span className="hero-name-first font-outfit font-black text-6xl sm:text-8xl md:text-9xl tracking-tight text-apple-gradient uppercase">
+        <h1 className="flex flex-col items-center leading-none mb-4 sm:mb-6">
+          <span className="hero-name-first font-outfit font-black text-5xl sm:text-7xl md:text-9xl tracking-tight text-apple-gradient uppercase">
             {siteConfig.name.split(' ')[0]}
           </span>
-          <span className="hero-name-last font-outfit font-black text-6xl sm:text-8xl md:text-9xl tracking-tight text-apple-blue-gradient uppercase -mt-2 md:-mt-6">
+          <span className="hero-name-last font-outfit font-black text-5xl sm:text-7xl md:text-9xl tracking-tight text-apple-blue-gradient uppercase -mt-1 sm:-mt-2 md:-mt-6">
             {siteConfig.name.split(' ')[1]}
           </span>
         </h1>
 
         {/* Role & Tagline */}
-        <div className="max-w-2xl flex flex-col items-center gap-4 mt-2">
-          <p className="hero-role opacity-0 font-mono text-xs sm:text-sm tracking-[0.3em] text-blue-400 uppercase font-semibold">
+        <div className="max-w-2xl flex flex-col items-center gap-2 sm:gap-3 md:gap-4 mt-1 md:mt-2">
+          <p className="hero-role opacity-0 font-mono text-[11px] sm:text-xs md:text-sm tracking-[0.25em] sm:tracking-[0.3em] text-blue-400 uppercase font-semibold">
             {siteConfig.role}
           </p>
-          <p className="hero-tagline opacity-0 text-white/70 text-base sm:text-xl font-light leading-relaxed max-w-xl">
+          <p className="hero-tagline opacity-0 text-white/70 text-sm sm:text-lg md:text-xl font-light leading-relaxed max-w-xl px-2">
             "{siteConfig.tagline}"
           </p>
         </div>
 
         {/* Apple CTA Pill Buttons */}
-        <div className="hero-ctas opacity-0 flex flex-wrap items-center justify-center gap-4 mt-10">
+        <div className="hero-ctas opacity-0 flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 md:mt-10">
           <button 
             onClick={() => scrollToSection('projects')}
-            className="rounded-full bg-white text-black font-semibold text-xs tracking-widest uppercase px-8 py-3.5 hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-xl"
+            className="rounded-full bg-white text-black font-semibold text-xs tracking-widest uppercase px-6 sm:px-8 py-3 sm:py-3.5 hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-xl"
           >
             VIEW PROJECTS →
           </button>
           <button 
             onClick={() => scrollToSection('contact')}
-            className="apple-pill px-8 py-3.5 text-xs font-mono tracking-widest uppercase text-white font-medium hover:scale-105 transition-all duration-300"
+            className="apple-pill px-6 sm:px-8 py-3 sm:py-3.5 text-xs font-mono tracking-widest uppercase text-white font-medium hover:scale-105 transition-all duration-300"
           >
             GET IN TOUCH
           </button>
@@ -103,11 +103,11 @@ export default function Hero() {
       </div>
 
       {/* Scroll Prompt */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="font-mono text-[0.6rem] tracking-[0.3em] text-white/40 uppercase">
+      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 sm:gap-2">
+        <span className="font-mono text-[0.55rem] sm:text-[0.6rem] tracking-[0.25em] sm:tracking-[0.3em] text-white/40 uppercase">
           SCROLL TO EXPLORE
         </span>
-        <div className="w-[1.5px] h-8 bg-gradient-to-b from-blue-500 to-transparent animate-pulse rounded-full"></div>
+        <div className="w-[1.5px] h-6 sm:h-8 bg-gradient-to-b from-blue-500 to-transparent animate-pulse rounded-full"></div>
       </div>
     </section>
   );

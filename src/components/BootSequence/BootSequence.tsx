@@ -117,7 +117,7 @@ export default function BootSequence() {
   return (
     <div 
       ref={container}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black text-white font-mono pointer-events-auto p-6 overflow-hidden select-none"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black text-white font-mono pointer-events-auto p-4 sm:p-6 overflow-hidden select-none"
     >
       {/* Subtle Ambient Radial Backdrop Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[160px] pointer-events-none"></div>
@@ -125,37 +125,37 @@ export default function BootSequence() {
       {/* Skip Intro Pill */}
       <button 
         onClick={skipIntro}
-        className="absolute top-6 sm:top-8 right-6 sm:right-8 z-50 apple-glass rounded-full px-5 py-2 border border-white/15 text-white/70 hover:text-white font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.2em] transition-all hover:scale-105 shadow-2xl flex items-center gap-2 group"
+        className="absolute top-4 sm:top-8 right-4 sm:right-8 z-50 apple-glass rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 border border-white/15 text-white/70 hover:text-white font-mono text-[0.6rem] sm:text-xs uppercase tracking-[0.2em] transition-all hover:scale-105 shadow-2xl flex items-center gap-1.5 sm:gap-2 group"
       >
         <span>SKIP INTRO</span>
         <span className="group-hover:translate-x-1 transition-transform">→</span>
       </button>
 
       {/* Center Stage Container */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[300px] text-center max-w-4xl mx-auto w-full">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[300px] text-center max-w-4xl mx-auto w-full px-2">
         
         {/* Phase 1: Boot Log */}
-        <div className="boot-log absolute inset-0 flex items-center justify-center gap-3 text-xs sm:text-sm text-blue-400 font-mono tracking-[0.3em] uppercase pointer-events-none opacity-0">
-          <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping"></span>
+        <div className="boot-log absolute inset-0 flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-blue-400 font-mono tracking-[0.25em] sm:tracking-[0.3em] uppercase pointer-events-none opacity-0">
+          <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-blue-500 animate-ping"></span>
           <span>{bootText}</span>
         </div>
 
         {/* Phase 2: Multilingual Welcome */}
-        <div className="welcome-word absolute inset-0 flex flex-col items-center justify-center gap-3 pointer-events-none opacity-0">
-          <span className="font-outfit font-black text-5xl sm:text-7xl md:text-8xl tracking-tight text-white uppercase">
+        <div className="welcome-word absolute inset-0 flex flex-col items-center justify-center gap-2 sm:gap-3 pointer-events-none opacity-0 px-2">
+          <span className="font-outfit font-black text-4xl sm:text-7xl md:text-8xl tracking-tight text-white uppercase">
             {currentWord.text}
           </span>
-          <span className="font-mono text-[0.65rem] sm:text-xs tracking-[0.4em] text-blue-400/80 uppercase font-semibold">
+          <span className="font-mono text-[0.6rem] sm:text-xs tracking-[0.35em] sm:tracking-[0.4em] text-blue-400/80 uppercase font-semibold">
             — {currentWord.lang} —
           </span>
         </div>
 
         {/* Phase 3: Final Name Reveal */}
-        <div className="final-container absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-          <h1 className="final-name opacity-0 font-outfit font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white uppercase leading-none mb-4">
+        <div className="final-container absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-2">
+          <h1 className="final-name opacity-0 font-outfit font-black text-3xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white uppercase leading-none mb-3 sm:mb-4">
             DURGESH <span className="text-apple-blue-gradient">POKLE</span>
           </h1>
-          <p className="final-role opacity-0 font-mono text-xs sm:text-sm md:text-base tracking-[0.3em] text-blue-400 uppercase font-medium max-w-xl">
+          <p className="final-role opacity-0 font-mono text-[11px] sm:text-sm md:text-base tracking-[0.25em] sm:tracking-[0.3em] text-blue-400 uppercase font-medium max-w-xl">
             ARTIFICIAL INTELLIGENCE & MACHINE LEARNING ENGINEER
           </p>
         </div>
@@ -163,7 +163,7 @@ export default function BootSequence() {
       </div>
 
       {/* Footer Minimal Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[0.65rem] text-white/30 tracking-[0.3em] uppercase">
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 font-mono text-[0.6rem] sm:text-[0.65rem] text-white/30 tracking-[0.25em] sm:tracking-[0.3em] uppercase whitespace-nowrap">
         CINEMATIC PROFILE SYSTEM • 2026
       </div>
     </div>

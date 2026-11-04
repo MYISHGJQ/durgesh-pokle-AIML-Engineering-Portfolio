@@ -105,7 +105,7 @@ export default function ProjectDetailModal() {
     <div
       ref={backdropRef}
       onClick={handleClose}
-      className="fixed inset-0 z-[1000] bg-black/80 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden pointer-events-auto"
+      className="fixed inset-0 z-[1000] bg-black/80 backdrop-blur-xl flex items-center justify-center p-2 sm:p-6 md:p-8 overflow-hidden pointer-events-auto"
       style={{ touchAction: 'none' }}
     >
       {/* Modal Container */}
@@ -115,62 +115,62 @@ export default function ProjectDetailModal() {
         aria-modal="true"
         aria-labelledby="modal-project-title"
         onClick={(e) => e.stopPropagation()}
-        className="relative w-[94vw] sm:w-[90vw] md:w-[85vw] lg:w-[75vw] max-w-4xl max-h-[90vh] overflow-y-auto overflow-x-hidden apple-glass rounded-3xl p-6 sm:p-10 md:p-12 border border-white/20 shadow-2xl z-[1001]"
+        className="relative w-[96vw] sm:w-[90vw] md:w-[85vw] lg:w-[75vw] max-w-4xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto overflow-x-hidden apple-glass rounded-2xl sm:rounded-3xl p-4 sm:p-10 md:p-12 border border-white/20 shadow-2xl z-[1001]"
         style={{ overscrollBehavior: 'contain' }}
       >
         {/* Apple Pill Close Button */}
         <button
           onClick={handleClose}
           aria-label="Close project details"
-          className="absolute top-6 right-6 font-mono text-xs tracking-widest text-white/70 hover:text-white px-4 py-2 border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 rounded-full transition-all uppercase z-10 cursor-pointer"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 font-mono text-[11px] sm:text-xs tracking-widest text-white/70 hover:text-white px-3 py-1.5 sm:px-4 sm:py-2 border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 rounded-full transition-all uppercase z-10 cursor-pointer"
         >
           CLOSE ✕
         </button>
 
         {/* Header */}
-        <div className="flex flex-col gap-2 mb-8 pr-16">
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className="font-mono text-xs tracking-widest text-blue-300 font-semibold uppercase px-3.5 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full">
+        <div className="flex flex-col gap-1.5 sm:gap-2 mb-4 sm:mb-8 pr-12 sm:pr-16">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            <span className="font-mono text-[11px] sm:text-xs tracking-widest text-blue-300 font-semibold uppercase px-2.5 sm:px-3.5 py-0.5 sm:py-1 bg-blue-500/20 border border-blue-500/30 rounded-full">
               {project.category}
             </span>
-            <span className="font-mono text-xs tracking-widest text-white/40 font-medium">
+            <span className="font-mono text-[11px] sm:text-xs tracking-widest text-white/40 font-medium">
               {project.year}
             </span>
           </div>
 
-          <h2 id="modal-project-title" className="font-outfit font-black text-2xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mt-3">
+          <h2 id="modal-project-title" className="font-outfit font-black text-xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mt-2 sm:mt-3">
             {project.title}
           </h2>
-          <p className="font-mono text-xs sm:text-sm tracking-wider text-blue-300 font-medium">
+          <p className="font-mono text-[11px] sm:text-sm tracking-wider text-blue-300 font-medium">
             {project.subtitle}
           </p>
         </div>
 
         {/* Description & Problem/Solution Cards */}
-        <div className="space-y-6 text-white/80 text-sm sm:text-base font-light leading-relaxed border-y border-white/10 py-6 mb-8">
+        <div className="space-y-4 sm:space-y-6 text-white/80 text-xs sm:text-sm md:text-base font-light leading-relaxed border-y border-white/10 py-4 sm:py-6 mb-4 sm:mb-8">
           <p>{project.description}</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-            <div className="bg-white/5 p-6 border border-white/10 rounded-2xl">
-              <p className="font-mono text-xs tracking-widest text-amber-400 font-semibold uppercase mb-2">THE PROBLEM</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-2 sm:pt-4">
+            <div className="bg-white/5 p-4 sm:p-6 border border-white/10 rounded-xl sm:rounded-2xl">
+              <p className="font-mono text-[11px] sm:text-xs tracking-widest text-amber-400 font-semibold uppercase mb-1.5 sm:mb-2">THE PROBLEM</p>
               <p className="text-white/70 text-xs sm:text-sm font-light leading-relaxed">{project.problem}</p>
             </div>
-            <div className="bg-blue-500/10 p-6 border border-blue-500/25 rounded-2xl">
-              <p className="font-mono text-xs tracking-widest text-blue-400 font-semibold uppercase mb-2">THE SOLUTION</p>
+            <div className="bg-blue-500/10 p-4 sm:p-6 border border-blue-500/25 rounded-xl sm:rounded-2xl">
+              <p className="font-mono text-[11px] sm:text-xs tracking-widest text-blue-400 font-semibold uppercase mb-1.5 sm:mb-2">THE SOLUTION</p>
               <p className="text-white/70 text-xs sm:text-sm font-light leading-relaxed">{project.solution}</p>
             </div>
           </div>
         </div>
 
         {/* Key Features */}
-        <div className="mb-8">
-          <h3 className="font-mono text-xs tracking-[0.25em] text-white/50 uppercase mb-4 font-semibold">
+        <div className="mb-4 sm:mb-8">
+          <h3 className="font-mono text-[11px] sm:text-xs tracking-[0.25em] text-white/50 uppercase mb-3 sm:mb-4 font-semibold">
             KEY FEATURES & CAPABILITIES
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
             {project.features.map((feature, idx) => (
-              <div key={idx} className="flex items-center gap-3 p-3.5 bg-white/5 border border-white/10 rounded-xl text-xs font-mono text-white/80">
-                <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span>
+              <div key={idx} className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3.5 bg-white/5 border border-white/10 rounded-xl text-xs font-mono text-white/80">
+                <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-blue-500 shrink-0"></span>
                 <span>{feature}</span>
               </div>
             ))}
@@ -179,12 +179,12 @@ export default function ProjectDetailModal() {
 
         {/* Tech Stack Pills */}
         <div>
-          <h3 className="font-mono text-xs tracking-[0.25em] text-white/50 uppercase mb-4 font-semibold">
+          <h3 className="font-mono text-[11px] sm:text-xs tracking-[0.25em] text-white/50 uppercase mb-3 sm:mb-4 font-semibold">
             TECHNOLOGY STACK
           </h3>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {project.technologies.map((tech) => (
-              <span key={tech} className="px-4 py-2 border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono text-xs uppercase tracking-wider rounded-full font-medium">
+              <span key={tech} className="px-2.5 sm:px-4 py-1 sm:py-2 border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono text-[11px] sm:text-xs uppercase tracking-wider rounded-full font-medium">
                 {tech}
               </span>
             ))}

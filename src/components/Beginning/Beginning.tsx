@@ -73,18 +73,18 @@ export default function Beginning() {
     <section 
       ref={container} 
       id="about"
-      className="relative w-full pointer-events-auto px-6 py-20 sm:py-32 bg-transparent border-y border-white/5 overflow-hidden"
+      className="relative w-full pointer-events-auto px-4 sm:px-6 py-12 sm:py-20 md:py-32 bg-transparent border-y border-white/5 overflow-hidden"
     >
       {/* Background Radial Glow */}
       <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="beg-card relative z-10 max-w-6xl mx-auto w-full">
         {/* Apple Keynote About Container */}
-        <div className="apple-glass rounded-3xl p-8 sm:p-12 md:p-16 border border-white/15 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="apple-glass rounded-2xl sm:rounded-3xl p-5 sm:p-10 md:p-16 border border-white/15 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-center">
           
           {/* Left Side: Professional Profile Photo */}
           <div className="lg:col-span-5 flex justify-center w-full">
-            <div className="relative group w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-3xl overflow-hidden border border-white/20 shadow-[0_0_50px_rgba(59,130,246,0.15)] hover:border-blue-500/40 transition-all duration-500">
+            <div className="relative group w-full max-w-[260px] sm:max-w-sm md:max-w-md aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/20 shadow-[0_0_50px_rgba(59,130,246,0.15)] hover:border-blue-500/40 transition-all duration-500">
               {/* Photo */}
               <img 
                 src="/profile.jpg" 
@@ -99,9 +99,9 @@ export default function Beginning() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
               
               {/* Name Tag Overlay */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl apple-glass border border-white/10 flex flex-col gap-1">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl apple-glass border border-white/10 flex flex-col gap-1">
                 <div className="flex items-center justify-between">
-                  <span className="font-outfit font-extrabold text-white text-base tracking-wide uppercase">DURGESH POKLE</span>
+                  <span className="font-outfit font-extrabold text-white text-sm sm:text-base tracking-wide uppercase">DURGESH POKLE</span>
                   {/* Subtle System Signal Dot (Easter Egg #2) */}
                   <button
                     type="button"
@@ -118,47 +118,47 @@ export default function Beginning() {
                     className="w-2.5 h-2.5 rounded-full bg-cyan-400/80 hover:bg-cyan-300 transition-all hover:scale-150 cursor-pointer shadow-[0_0_8px_rgba(6,182,212,0.6)] focus:outline-none"
                   ></button>
                 </div>
-                <span className="font-mono text-[0.65rem] text-blue-400 tracking-widest uppercase">AI & ML ENGINEER</span>
+                <span className="font-mono text-[0.6rem] sm:text-[0.65rem] text-blue-400 tracking-widest uppercase">AI & ML ENGINEER</span>
               </div>
             </div>
           </div>
 
           {/* Right Side: Storytelling Content */}
-          <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs tracking-[0.3em] uppercase self-start">
+          <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5 md:gap-6 text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-[11px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase self-start">
               02 / MEET THE ENGINEER
             </div>
 
-            <h2 className="font-outfit font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] uppercase">
+            <h2 className="font-outfit font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] uppercase">
               ARTIFICIAL INTELLIGENCE &<br />
               <span className="text-apple-blue-gradient">MACHINE LEARNING.</span>
             </h2>
 
-            <div className="flex flex-col gap-4 text-white/80 font-light text-base sm:text-lg leading-relaxed">
+            <div className="flex flex-col gap-2.5 sm:gap-4 text-white/80 font-light text-sm sm:text-base md:text-lg leading-relaxed">
               <p>
                 I started my journey with a strong foundation in <strong className="text-white font-semibold">Mechanical Engineering</strong>, mastering physical mechanics, CAD design, and engineering systems.
               </p>
               <p>
                 Gradually, my passion evolved toward <strong className="text-white font-semibold">Artificial Intelligence & Machine Learning</strong>. Today, I focus on building intelligent algorithms that bridge physical engineering systems and computational intelligence.
               </p>
-              <p className="text-white/60 text-sm sm:text-base">
+              <p className="text-white/60 text-xs sm:text-sm md:text-base">
                 Currently pursuing my B.Tech in AI & ML at DMIHER, I build neural network solutions, smart automation pipelines, and real-time AI digital twin architectures.
               </p>
             </div>
 
             {/* Key Highlights Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 font-mono text-xs text-white/90 flex flex-col gap-1">
-                <span className="text-blue-400 font-bold text-sm">B.TECH AI & ML</span>
-                <span className="text-white/50 text-[0.65rem]">DMIHER (2024–27)</span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 pt-1 sm:pt-2">
+              <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 font-mono text-xs text-white/90 flex flex-col gap-1">
+                <span className="text-blue-400 font-bold text-xs sm:text-sm">B.TECH AI & ML</span>
+                <span className="text-white/50 text-[0.6rem] sm:text-[0.65rem]">DMIHER (2024–27)</span>
               </div>
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 font-mono text-xs text-white/90 flex flex-col gap-1">
-                <span className="text-blue-400 font-bold text-sm">DIPLOMA MECH</span>
-                <span className="text-white/50 text-[0.65rem]">ASPC Wardha (2021–24)</span>
+              <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 font-mono text-xs text-white/90 flex flex-col gap-1">
+                <span className="text-blue-400 font-bold text-xs sm:text-sm">DIPLOMA MECH</span>
+                <span className="text-white/50 text-[0.6rem] sm:text-[0.65rem]">ASPC Wardha (2021–24)</span>
               </div>
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 font-mono text-xs text-white/90 flex flex-col gap-1 col-span-2 sm:col-span-1">
-                <span className="text-blue-400 font-bold text-sm">AI & SYSTEMS</span>
-                <span className="text-white/50 text-[0.65rem]">Digital Twins & ML</span>
+              <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 font-mono text-xs text-white/90 flex flex-col gap-1 col-span-2 sm:col-span-1">
+                <span className="text-blue-400 font-bold text-xs sm:text-sm">AI & SYSTEMS</span>
+                <span className="text-white/50 text-[0.6rem] sm:text-[0.65rem]">Digital Twins & ML</span>
               </div>
             </div>
 

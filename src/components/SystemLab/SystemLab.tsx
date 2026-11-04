@@ -128,7 +128,7 @@ export default function SystemLab() {
       ref={sectionRef}
       id="system-lab"
       aria-label="System Lab - Interactive AI Simulation"
-      className="relative w-full min-h-[90vh] py-20 sm:py-28 px-4 sm:px-6 flex flex-col items-center justify-center bg-black overflow-hidden pointer-events-auto"
+      className="relative w-full min-h-0 md:min-h-[90vh] py-12 sm:py-20 md:py-28 px-4 sm:px-6 flex flex-col items-center justify-center bg-black overflow-hidden pointer-events-auto"
     >
       {/* Subtle Ambient Radial Glow */}
       <div 
@@ -144,45 +144,45 @@ export default function SystemLab() {
 
       <div className="relative z-10 max-w-6xl w-full flex flex-col items-center">
         {/* Section Header */}
-        <div className="text-center flex flex-col items-center mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/25 text-blue-400 font-mono text-[11px] sm:text-xs tracking-[0.25em] uppercase mb-4 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+        <div className="text-center flex flex-col items-center mb-6 sm:mb-10 md:mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/25 text-blue-400 font-mono text-[11px] sm:text-xs tracking-[0.25em] uppercase mb-3 sm:mb-4 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
             <span>INTERACT • EXPERIMENT • PREDICT</span>
           </div>
 
-          <h2 className="font-outfit font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight uppercase">
+          <h2 className="font-outfit font-black text-2xl sm:text-4xl lg:text-6xl text-white tracking-tight uppercase">
             SYSTEM LAB
           </h2>
 
-          <p className="mt-3 font-mono text-sm sm:text-base text-white/70 max-w-xl text-center leading-relaxed">
+          <p className="mt-2 sm:mt-3 font-mono text-xs sm:text-sm md:text-base text-white/70 max-w-xl text-center leading-relaxed">
             "Don't just see what I build. Interact with it."
           </p>
         </div>
 
         {/* Main Interactive Machine Stage */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 md:gap-8 items-stretch">
           
           {/* Left Column: Machine A Hardware & Telemetry Visual */}
-          <div className="lg:col-span-5 flex flex-col justify-between apple-glass rounded-3xl p-5 sm:p-7 border border-white/15 relative overflow-hidden bg-black/60 shadow-2xl">
+          <div className="lg:col-span-5 flex flex-col justify-between apple-glass rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-7 border border-white/15 relative overflow-hidden bg-black/60 shadow-2xl">
             {/* Header Badge */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
-              <div className="flex items-center gap-2.5">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3 sm:pb-4 mb-3 sm:mb-4">
+              <div className="flex items-center gap-2 sm:gap-2.5">
                 <span 
                   className={`w-2.5 h-2.5 rounded-full transition-colors duration-500 ${
                     failureRisk >= 65 ? 'bg-red-500 animate-ping' : failureRisk >= 35 ? 'bg-amber-400 animate-pulse' : 'bg-cyan-400 animate-pulse'
                   }`}
                 ></span>
-                <span className="font-mono text-xs text-white font-bold tracking-widest uppercase">
+                <span className="font-mono text-[11px] sm:text-xs text-white font-bold tracking-widest uppercase">
                   MACHINE A // VIRTUAL TWIN
                 </span>
               </div>
-              <span className="font-mono text-[10px] text-white/50 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded border border-white/10">
+              <span className="font-mono text-[9px] sm:text-[10px] text-white/50 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded border border-white/10">
                 ACTIVE SIM
               </span>
             </div>
 
             {/* SVG Machine Representation */}
-            <div className="relative w-full aspect-square max-w-[280px] sm:max-w-[320px] mx-auto my-2 flex items-center justify-center">
+            <div className="relative w-full aspect-square max-w-[200px] sm:max-w-[260px] md:max-w-[320px] mx-auto my-1 sm:my-2 flex items-center justify-center">
               {/* Outer Housing Ring */}
               <svg className="w-full h-full" viewBox="0 0 200 200">
                 {/* Fixed Technical Ring with Tick Marks */}
@@ -236,20 +236,20 @@ export default function SystemLab() {
 
               {/* Dynamic Overlay Telemetry in Center */}
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none">
-                <span className="font-mono text-[10px] text-white/50 tracking-widest uppercase">RPM</span>
-                <span className="font-mono font-black text-lg sm:text-xl text-white tracking-wider">{rpm}</span>
+                <span className="font-mono text-[9px] sm:text-[10px] text-white/50 tracking-widest uppercase">RPM</span>
+                <span className="font-mono font-black text-base sm:text-xl text-white tracking-wider">{rpm}</span>
               </div>
             </div>
 
             {/* Live Waveform Oscillogram */}
-            <div className="w-full bg-black/60 rounded-xl p-3 border border-white/10 mt-3 flex flex-col gap-1.5">
-              <div className="flex items-center justify-between font-mono text-[10px] text-white/50 tracking-widest uppercase">
+            <div className="w-full bg-black/60 rounded-xl p-2.5 sm:p-3 border border-white/10 mt-2 sm:mt-3 flex flex-col gap-1 sm:gap-1.5">
+              <div className="flex items-center justify-between font-mono text-[9px] sm:text-[10px] text-white/50 tracking-widest uppercase">
                 <span>VIBRATION HARMONIC SPECTRUM</span>
                 <span className={failureRisk >= 65 ? 'text-red-400 font-bold' : 'text-cyan-400'}>
                   {vibration} mm/s
                 </span>
               </div>
-              <div className="w-full h-8 overflow-hidden relative flex items-center">
+              <div className="w-full h-7 sm:h-8 overflow-hidden relative flex items-center">
                 <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 24">
                   <path
                     d={`M 0 12 Q 12 ${12 - vibration * 1.1}, 25 12 T 50 12 T 75 12 T 100 12`}
@@ -263,14 +263,14 @@ export default function SystemLab() {
             </div>
 
             {/* Machine Meta Grid */}
-            <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-white/10 font-mono text-xs">
+            <div className="grid grid-cols-2 gap-2 mt-2.5 sm:mt-3 pt-2.5 sm:pt-3 border-t border-white/10 font-mono text-xs">
               <div className="flex flex-col">
-                <span className="text-[10px] text-white/40 tracking-widest uppercase">TORQUE</span>
-                <span className="font-bold text-white tracking-wide">{torque} Nm</span>
+                <span className="text-[9px] sm:text-[10px] text-white/40 tracking-widest uppercase">TORQUE</span>
+                <span className="font-bold text-white tracking-wide text-xs sm:text-sm">{torque} Nm</span>
               </div>
               <div className="flex flex-col text-right">
-                <span className="text-[10px] text-white/40 tracking-widest uppercase">HEALTH SCORE</span>
-                <span className={`font-bold tracking-wide ${health >= 70 ? 'text-emerald-400' : health >= 45 ? 'text-amber-400' : 'text-red-400'}`}>
+                <span className="text-[9px] sm:text-[10px] text-white/40 tracking-widest uppercase">HEALTH SCORE</span>
+                <span className={`font-bold tracking-wide text-xs sm:text-sm ${health >= 70 ? 'text-emerald-400' : health >= 45 ? 'text-amber-400' : 'text-red-400'}`}>
                   {health}%
                 </span>
               </div>
@@ -278,33 +278,33 @@ export default function SystemLab() {
           </div>
 
           {/* Right Column: Controls, Analysis & Predictive Engine */}
-          <div className="lg:col-span-7 flex flex-col justify-between apple-glass rounded-3xl p-5 sm:p-7 border border-white/15 bg-black/60 shadow-2xl gap-6">
+          <div className="lg:col-span-7 flex flex-col justify-between apple-glass rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-7 border border-white/15 bg-black/60 shadow-2xl gap-4 sm:gap-6">
             
             {/* Sub-heading & Status */}
             <div>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 pb-3 sm:pb-4 border-b border-white/10">
                 <div>
-                  <h3 className="font-outfit font-extrabold text-xl text-white tracking-tight uppercase">
+                  <h3 className="font-outfit font-extrabold text-lg sm:text-xl text-white tracking-tight uppercase">
                     SIMULATED SENSOR CONTROL
                   </h3>
-                  <p className="font-mono text-xs text-white/60 mt-0.5">
+                  <p className="font-mono text-[11px] sm:text-xs text-white/60 mt-0.5">
                     Adjust operational variables to observe dynamic risk response.
                   </p>
                 </div>
 
                 {/* Status Indicator Badge */}
-                <div className={`self-start sm:self-center px-3.5 py-1.5 rounded-full border font-mono text-[11px] font-bold tracking-wider uppercase transition-all duration-500 ${statusColor}`}>
+                <div className={`self-start sm:self-center px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border font-mono text-[10px] sm:text-[11px] font-bold tracking-wider uppercase transition-all duration-500 ${statusColor}`}>
                   {status}
                 </div>
               </div>
 
               {/* Sliders Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-5 mt-4 sm:mt-6">
                 
                 {/* 1. Temperature */}
-                <div className="flex flex-col gap-2 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                <div className="flex flex-col gap-1.5 sm:gap-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10">
                   <div className="flex justify-between items-center font-mono text-xs">
-                    <span className="text-white/60 tracking-wider">TEMPERATURE</span>
+                    <span className="text-white/60 tracking-wider text-[11px] sm:text-xs">TEMPERATURE</span>
                     <span className={`font-bold ${temperature > 85 ? 'text-red-400' : 'text-cyan-300'}`}>
                       {temperature}°C
                     </span>
@@ -327,9 +327,9 @@ export default function SystemLab() {
                 </div>
 
                 {/* 2. Vibration */}
-                <div className="flex flex-col gap-2 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                <div className="flex flex-col gap-1.5 sm:gap-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10">
                   <div className="flex justify-between items-center font-mono text-xs">
-                    <span className="text-white/60 tracking-wider">VIBRATION</span>
+                    <span className="text-white/60 tracking-wider text-[11px] sm:text-xs">VIBRATION</span>
                     <span className={`font-bold ${vibration > 6.5 ? 'text-red-400' : 'text-cyan-300'}`}>
                       {vibration} mm/s
                     </span>
@@ -352,9 +352,9 @@ export default function SystemLab() {
                 </div>
 
                 {/* 3. RPM */}
-                <div className="flex flex-col gap-2 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+                <div className="flex flex-col gap-1.5 sm:gap-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10">
                   <div className="flex justify-between items-center font-mono text-xs">
-                    <span className="text-white/60 tracking-wider">RPM</span>
+                    <span className="text-white/60 tracking-wider text-[11px] sm:text-xs">RPM</span>
                     <span className={`font-bold ${rpm > 1900 ? 'text-red-400' : 'text-cyan-300'}`}>
                       {rpm}
                     </span>
@@ -379,12 +379,12 @@ export default function SystemLab() {
             </div>
 
             {/* Run Analysis Trigger Area */}
-            <div className="flex flex-col gap-3 pt-2">
+            <div className="flex flex-col gap-2.5 sm:gap-3 pt-1 sm:pt-2">
               <button
                 type="button"
                 onClick={handleRunAnalysis}
                 disabled={isAnalyzing}
-                className="w-full py-4 px-6 rounded-2xl font-mono text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-[0_0_25px_rgba(6,182,212,0.3)] hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl font-mono text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2.5 sm:gap-3 cursor-pointer bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-[0_0_25px_rgba(6,182,212,0.3)] hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {isAnalyzing ? (
                   <>
@@ -413,66 +413,66 @@ export default function SystemLab() {
             </div>
 
             {/* Analysis Result / Predictive Dashboard */}
-            <div className={`p-4 sm:p-5 rounded-2xl border transition-all duration-500 flex flex-col gap-3 ${
+            <div className={`p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border transition-all duration-500 flex flex-col gap-2.5 sm:gap-3 ${
               analysisCompleted 
                 ? 'bg-white/[0.04] border-cyan-500/40 shadow-[0_0_30px_rgba(6,182,212,0.15)]'
                 : 'bg-white/[0.02] border-white/10'
             }`}>
-              <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
-                <span className="font-mono text-xs text-white/70 tracking-widest uppercase font-semibold">
+              <div className="flex items-center justify-between border-b border-white/10 pb-2 sm:pb-2.5">
+                <span className="font-mono text-[11px] sm:text-xs text-white/70 tracking-widest uppercase font-semibold">
                   PREDICTIVE ANALYSIS REPORT
                 </span>
-                <span className="font-mono text-[10px] text-cyan-400 tracking-wider uppercase">
+                <span className="font-mono text-[9px] sm:text-[10px] text-cyan-400 tracking-wider uppercase">
                   {analysisCompleted ? 'VERIFIED' : 'ACTIVE MODEL READY'}
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 items-center">
                 <div>
-                  <span className="font-mono text-[10px] text-white/50 tracking-wider uppercase block">
+                  <span className="font-mono text-[9px] sm:text-[10px] text-white/50 tracking-wider uppercase block">
                     CALCULATED FAILURE RISK
                   </span>
                   <div className="flex items-baseline gap-2 mt-0.5">
-                    <span className={`font-outfit font-black text-3xl sm:text-4xl tracking-tight transition-colors duration-500 ${
+                    <span className={`font-outfit font-black text-2xl sm:text-3xl md:text-4xl tracking-tight transition-colors duration-500 ${
                       failureRisk >= 65 ? 'text-red-400' : failureRisk >= 35 ? 'text-amber-400' : 'text-cyan-400'
                     }`}>
                       {failureRisk}%
                     </span>
-                    <span className="font-mono text-xs text-white/50 uppercase">
+                    <span className="font-mono text-[11px] sm:text-xs text-white/50 uppercase">
                       ({failureRisk >= 65 ? 'CRITICAL' : failureRisk >= 35 ? 'ELEVATED' : 'NOMINAL'})
                     </span>
                   </div>
                 </div>
 
                 <div className="flex flex-col sm:items-end">
-                  <span className="font-mono text-[10px] text-white/50 tracking-wider uppercase block sm:text-right">
+                  <span className="font-mono text-[9px] sm:text-[10px] text-white/50 tracking-wider uppercase block sm:text-right">
                     SYSTEM HEALTH MATRIX
                   </span>
-                  <span className="font-mono font-bold text-lg text-white mt-0.5">
+                  <span className="font-mono font-bold text-base sm:text-lg text-white mt-0.5">
                     {status}
                   </span>
                 </div>
               </div>
 
-              <p className="font-mono text-xs text-white/80 leading-relaxed pt-1">
+              <p className="font-mono text-[11px] sm:text-xs text-white/80 leading-relaxed pt-0.5 sm:pt-1">
                 {statusMessage}
               </p>
 
-              <span className="font-mono text-[10px] text-white/40 italic">
+              <span className="font-mono text-[9px] sm:text-[10px] text-white/40 italic">
                 * Simulated demonstration model inspired by industrial AI Digital Twin architecture.
               </span>
             </div>
 
             {/* Digital Twin Connection Banner */}
-            <div className="pt-2 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="font-mono text-xs text-white/80 text-center sm:text-left">
+            <div className="pt-2 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+              <p className="font-mono text-[11px] sm:text-xs text-white/80 text-center sm:text-left">
                 "This is the kind of problem I build AI systems to solve."
               </p>
 
               <button
                 type="button"
                 onClick={handleExploreDigitalTwin}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-mono text-xs tracking-wider uppercase border border-white/20 hover:border-cyan-400/60 transition-all cursor-pointer hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 sm:py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-mono text-[11px] sm:text-xs tracking-wider uppercase border border-white/20 hover:border-cyan-400/60 transition-all cursor-pointer hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] active:scale-95"
               >
                 <span>EXPLORE DIGITAL TWIN</span>
                 <span className="text-cyan-400">→</span>
@@ -482,8 +482,8 @@ export default function SystemLab() {
         </div>
 
         {/* System Lab Exit CTA */}
-        <div className="mt-12 sm:mt-16 w-full flex flex-col items-center gap-4 text-center">
-          <div className="inline-flex items-center gap-2 font-mono text-[11px] sm:text-xs text-white/50 tracking-[0.25em] uppercase">
+        <div className="mt-8 sm:mt-12 md:mt-16 w-full flex flex-col items-center gap-3 sm:gap-4 text-center">
+          <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs text-white/50 tracking-[0.2em] sm:tracking-[0.25em] uppercase">
             <span>OBSERVE</span>
             <span className="text-cyan-400">→</span>
             <span>ANALYZE</span>
@@ -496,7 +496,7 @@ export default function SystemLab() {
           <button
             type="button"
             onClick={handleContinueToSkills}
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/[0.08] hover:bg-white/[0.16] text-white/90 hover:text-white font-mono text-xs tracking-widest uppercase border border-white/15 hover:border-white/30 backdrop-blur-md transition-all shadow-lg cursor-pointer hover:scale-105 active:scale-95 group"
+            className="inline-flex items-center gap-2.5 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/[0.08] hover:bg-white/[0.16] text-white/90 hover:text-white font-mono text-xs tracking-widest uppercase border border-white/15 hover:border-white/30 backdrop-blur-md transition-all shadow-lg cursor-pointer hover:scale-105 active:scale-95 group"
           >
             <span>CONTINUE TO SKILLS</span>
             <span className="text-blue-400 group-hover:translate-y-0.5 transition-transform">↓</span>

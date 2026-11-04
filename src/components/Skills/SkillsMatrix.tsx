@@ -79,67 +79,67 @@ export default function SkillsMatrix() {
     <section 
       ref={container} 
       id="skills" 
-      className="relative w-full min-h-screen pointer-events-auto px-6 py-24 sm:py-32 bg-transparent overflow-hidden border-t border-white/10"
+      className="relative w-full min-h-0 md:min-h-screen pointer-events-auto px-4 sm:px-6 py-12 sm:py-20 md:py-32 bg-transparent overflow-hidden border-t border-white/10"
     >
       {/* Section Header */}
-      <div className="max-w-6xl mx-auto mb-20 text-center flex flex-col items-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs tracking-[0.3em] uppercase mb-4">
+      <div className="max-w-6xl mx-auto mb-8 sm:mb-14 md:mb-20 text-center flex flex-col items-center">
+        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-[11px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4">
           05 / TECHNICAL CAPABILITY MAP
         </div>
-        <h2 className="font-outfit font-black text-4xl sm:text-6xl text-white tracking-tight uppercase">
+        <h2 className="font-outfit font-black text-2xl sm:text-4xl md:text-6xl text-white tracking-tight uppercase">
           ENGINEERING <span className="text-apple-blue-gradient">CAPABILITIES</span>
         </h2>
-        <p className="text-white/60 text-sm sm:text-base max-w-xl font-light leading-relaxed mt-3">
+        <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-xl font-light leading-relaxed mt-2 sm:mt-3">
           Structured AI/ML technical architecture, core programming tools, and creative automation systems.
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto flex flex-col gap-16">
+      <div className="max-w-6xl mx-auto flex flex-col gap-8 sm:gap-12 md:gap-16">
         
         {/* CATEGORY 01: AI & MACHINE LEARNING (PRIMARY - Highest Hierarchy) */}
         {cat1 && (
-          <div className="skill-category-block relative apple-glass rounded-3xl p-8 sm:p-12 border border-cyan-500/30 shadow-[0_0_50px_rgba(0,212,255,0.08)] bg-gradient-to-b from-blue-950/20 via-black/40 to-transparent flex flex-col gap-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-bold tracking-widest text-black bg-cyan-400 px-3 py-1 rounded-full uppercase">
+          <div className="skill-category-block relative apple-glass rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 border border-cyan-500/30 shadow-[0_0_50px_rgba(0,212,255,0.08)] bg-gradient-to-b from-blue-950/20 via-black/40 to-transparent flex flex-col gap-5 sm:gap-6 md:gap-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-white/10 pb-4 sm:pb-6">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <span className="font-mono text-[11px] sm:text-xs font-bold tracking-widest text-black bg-cyan-400 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase">
                   {cat1.number} // {cat1.badge}
                 </span>
-                <h3 className="font-outfit font-black text-2xl sm:text-4xl text-white tracking-tight uppercase">
+                <h3 className="font-outfit font-black text-xl sm:text-3xl md:text-4xl text-white tracking-tight uppercase">
                   {cat1.name}
                 </h3>
               </div>
-              <span className="font-mono text-xs text-cyan-300/80 tracking-wider">
+              <span className="font-mono text-[11px] sm:text-xs text-cyan-300/80 tracking-wider">
                 {cat1.subtitle}
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
               {cat1.skills.map((skill) => (
                 <div 
                   key={skill.name}
-                  className="group relative apple-glass apple-glass-hover p-6 rounded-2xl border border-cyan-500/20 hover:border-cyan-400/60 bg-cyan-950/10 hover:bg-cyan-900/20 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 shadow-lg hover:shadow-[0_10px_30px_rgba(0,212,255,0.15)]"
+                  className="group relative apple-glass apple-glass-hover p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-cyan-500/20 hover:border-cyan-400/60 bg-cyan-950/10 hover:bg-cyan-900/20 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 shadow-lg hover:shadow-[0_10px_30px_rgba(0,212,255,0.15)]"
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="font-mono text-[0.65rem] tracking-widest text-cyan-300 font-bold uppercase bg-cyan-500/20 border border-cyan-400/30 px-2.5 py-0.5 rounded-full">
+                    <div className="flex items-center justify-between gap-2 mb-2 sm:mb-3">
+                      <span className="font-mono text-[0.6rem] sm:text-[0.65rem] tracking-widest text-cyan-300 font-bold uppercase bg-cyan-500/20 border border-cyan-400/30 px-2 sm:px-2.5 py-0.5 rounded-full">
                         {skill.tag}
                       </span>
                       <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse group-hover:scale-125 transition-transform"></span>
                     </div>
 
-                    <h4 className="font-outfit font-black text-xl text-white mb-2 tracking-tight group-hover:text-cyan-200 transition-colors">
+                    <h4 className="font-outfit font-black text-lg sm:text-xl text-white mb-1.5 sm:mb-2 tracking-tight group-hover:text-cyan-200 transition-colors">
                       {skill.name}
                     </h4>
 
-                    <p className="text-white/70 text-xs font-light leading-relaxed mb-4">
+                    <p className="text-white/70 text-xs font-light leading-relaxed mb-3 sm:mb-4">
                       {skill.description}
                     </p>
                   </div>
 
                   {skill.usedInProject && (
-                    <div className="pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[0.65rem] text-cyan-300/90 tracking-widest uppercase">
+                    <div className="pt-2.5 sm:pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[0.6rem] sm:text-[0.65rem] text-cyan-300/90 tracking-widest uppercase">
                       <span>USED IN →</span>
-                      <span className="text-white font-semibold group-hover:text-cyan-300 transition-colors truncate max-w-[170px]">
+                      <span className="text-white font-semibold group-hover:text-cyan-300 transition-colors truncate max-w-[150px] sm:max-w-[170px]">
                         {skill.usedInProject}
                       </span>
                     </div>
@@ -152,48 +152,48 @@ export default function SkillsMatrix() {
 
         {/* CATEGORY 02: PROGRAMMING & TECHNOLOGY (ENGINEERING BASE) */}
         {cat2 && (
-          <div className="skill-category-block apple-glass rounded-3xl p-8 sm:p-12 border border-white/15 shadow-2xl flex flex-col gap-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-bold tracking-widest text-white bg-blue-600 px-3 py-1 rounded-full uppercase">
+          <div className="skill-category-block apple-glass rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 border border-white/15 shadow-2xl flex flex-col gap-5 sm:gap-6 md:gap-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-white/10 pb-4 sm:pb-6">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <span className="font-mono text-[11px] sm:text-xs font-bold tracking-widest text-white bg-blue-600 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase">
                   {cat2.number} // {cat2.badge}
                 </span>
-                <h3 className="font-outfit font-black text-2xl sm:text-3xl text-white tracking-tight uppercase">
+                <h3 className="font-outfit font-black text-xl sm:text-2xl md:text-3xl text-white tracking-tight uppercase">
                   {cat2.name}
                 </h3>
               </div>
-              <span className="font-mono text-xs text-white/50 tracking-wider">
+              <span className="font-mono text-[11px] sm:text-xs text-white/50 tracking-wider">
                 {cat2.subtitle}
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
               {cat2.skills.map((skill) => (
                 <div 
                   key={skill.name}
-                  className="group apple-glass apple-glass-hover p-5 rounded-2xl border border-white/10 hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 shadow-md hover:shadow-[0_8px_25px_rgba(59,130,246,0.12)]"
+                  className="group apple-glass apple-glass-hover p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-white/10 hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 shadow-md hover:shadow-[0_8px_25px_rgba(59,130,246,0.12)]"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-[0.6rem] tracking-widest text-blue-400 font-semibold uppercase bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded-full">
+                    <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                      <span className="font-mono text-[0.55rem] sm:text-[0.6rem] tracking-widest text-blue-400 font-semibold uppercase bg-blue-500/10 border border-blue-500/20 px-1.5 sm:px-2 py-0.5 rounded-full">
                         {skill.tag}
                       </span>
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-400 transition-colors"></span>
                     </div>
 
-                    <h4 className="font-outfit font-bold text-base text-white mb-1 tracking-tight group-hover:text-blue-300 transition-colors">
+                    <h4 className="font-outfit font-bold text-sm sm:text-base text-white mb-1 tracking-tight group-hover:text-blue-300 transition-colors">
                       {skill.name}
                     </h4>
 
-                    <p className="text-white/60 text-[0.75rem] font-light leading-snug mb-3">
+                    <p className="text-white/60 text-[0.7rem] sm:text-[0.75rem] font-light leading-snug mb-2 sm:mb-3">
                       {skill.description}
                     </p>
                   </div>
 
                   {skill.usedInProject && (
-                    <div className="pt-2 border-t border-white/10 flex items-center justify-between font-mono text-[0.6rem] text-white/40 uppercase tracking-wider">
+                    <div className="pt-1.5 sm:pt-2 border-t border-white/10 flex items-center justify-between font-mono text-[0.55rem] sm:text-[0.6rem] text-white/40 uppercase tracking-wider">
                       <span>USED IN →</span>
-                      <span className="text-blue-300/80 font-medium truncate max-w-[120px]">
+                      <span className="text-blue-300/80 font-medium truncate max-w-[90px] sm:max-w-[120px]">
                         {skill.usedInProject}
                       </span>
                     </div>
@@ -206,48 +206,48 @@ export default function SkillsMatrix() {
 
         {/* CATEGORY 03: CREATIVE & MEDIA (ADDITIONAL CREATIVE CAPABILITIES) */}
         {cat3 && (
-          <div className="skill-category-block apple-glass rounded-3xl p-8 sm:p-12 border border-purple-500/20 shadow-xl flex flex-col gap-8 bg-gradient-to-b from-purple-950/10 to-transparent">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-bold tracking-widest text-white bg-purple-600/80 px-3 py-1 rounded-full uppercase">
+          <div className="skill-category-block apple-glass rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 border border-purple-500/20 shadow-xl flex flex-col gap-5 sm:gap-6 md:gap-8 bg-gradient-to-b from-purple-950/10 to-transparent">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-white/10 pb-4 sm:pb-6">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <span className="font-mono text-[11px] sm:text-xs font-bold tracking-widest text-white bg-purple-600/80 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase">
                   {cat3.number} // {cat3.badge}
                 </span>
-                <h3 className="font-outfit font-black text-xl sm:text-2xl text-white tracking-tight uppercase">
+                <h3 className="font-outfit font-black text-lg sm:text-xl md:text-2xl text-white tracking-tight uppercase">
                   {cat3.name}
                 </h3>
               </div>
-              <span className="font-mono text-xs text-purple-300/70 tracking-wider">
+              <span className="font-mono text-[11px] sm:text-xs text-purple-300/70 tracking-wider">
                 {cat3.subtitle}
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
               {cat3.skills.map((skill) => (
                 <div 
                   key={skill.name}
-                  className="group apple-glass apple-glass-hover p-5 rounded-2xl border border-purple-500/20 hover:border-purple-400/50 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 shadow-md hover:shadow-[0_8px_25px_rgba(168,85,247,0.12)]"
+                  className="group apple-glass apple-glass-hover p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-purple-500/20 hover:border-purple-400/50 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 shadow-md hover:shadow-[0_8px_25px_rgba(168,85,247,0.12)]"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-[0.6rem] tracking-widest text-purple-300 font-semibold uppercase bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded-full">
+                    <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                      <span className="font-mono text-[0.55rem] sm:text-[0.6rem] tracking-widest text-purple-300 font-semibold uppercase bg-purple-500/10 border border-purple-500/20 px-1.5 sm:px-2 py-0.5 rounded-full">
                         {skill.tag}
                       </span>
                       <span className="w-1.5 h-1.5 rounded-full bg-purple-400/50 group-hover:bg-purple-300 transition-colors"></span>
                     </div>
 
-                    <h4 className="font-outfit font-bold text-base text-white mb-1 tracking-tight group-hover:text-purple-200 transition-colors">
+                    <h4 className="font-outfit font-bold text-sm sm:text-base text-white mb-1 tracking-tight group-hover:text-purple-200 transition-colors">
                       {skill.name}
                     </h4>
 
-                    <p className="text-white/60 text-[0.75rem] font-light leading-snug mb-3">
+                    <p className="text-white/60 text-[0.7rem] sm:text-[0.75rem] font-light leading-snug mb-2 sm:mb-3">
                       {skill.description}
                     </p>
                   </div>
 
                   {skill.usedInProject && (
-                    <div className="pt-2 border-t border-white/10 flex items-center justify-between font-mono text-[0.6rem] text-purple-300/70 uppercase tracking-wider">
+                    <div className="pt-1.5 sm:pt-2 border-t border-white/10 flex items-center justify-between font-mono text-[0.55rem] sm:text-[0.6rem] text-purple-300/70 uppercase tracking-wider">
                       <span>USED IN →</span>
-                      <span className="text-purple-200 font-medium truncate max-w-[120px]">
+                      <span className="text-purple-200 font-medium truncate max-w-[90px] sm:max-w-[120px]">
                         {skill.usedInProject}
                       </span>
                     </div>
