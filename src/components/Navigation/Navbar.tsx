@@ -63,7 +63,7 @@ export default function Navbar() {
         <div className="apple-navbar-glass" aria-hidden="true" />
 
         {/* Layer 2: Navigation Content Layer */}
-        <div className="relative z-10 px-2.5 sm:px-6 py-1.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-6">
+        <div className="relative z-10 px-2.5 sm:px-6 py-1.5 sm:py-3 flex items-center justify-between gap-1.5 sm:gap-2">
           {/* Left Column: DP Logo & Title */}
           <button 
             onClick={() => scrollToSection('home')}
@@ -79,43 +79,44 @@ export default function Navbar() {
             </div>
           </button>
 
-          {/* Center / Right Column: Direct Navigation Links */}
-          <div className="flex items-center gap-1 sm:gap-2">
-            <nav className="flex items-center gap-0.5 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 max-w-full">
-              {navItems.map((item) => {
-                const isActive = activeSection === item.id;
+          {/* Center Column: Direct Navigation Links */}
+          <nav 
+            aria-label="Section navigation"
+            className="flex items-center gap-0.5 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 min-w-0 flex-1 justify-start sm:justify-end"
+          >
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
 
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={cn(
-                      "relative font-mono text-[0.6rem] sm:text-[0.65rem] lg:text-xs tracking-wider uppercase whitespace-nowrap px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 flex items-center gap-1 sm:gap-1.5 focus:outline-none",
-                      isActive
-                        ? "bg-white/15 text-white font-semibold border border-white/20 shadow-sm"
-                        : "text-white/60 hover:text-white hover:bg-white/5 font-medium"
-                    )}
-                  >
-                    {isActive && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shrink-0"></span>
-                    )}
-                    <span>{item.label}</span>
-                  </button>
-                );
-              })}
-            </nav>
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={cn(
+                    "shrink-0 relative font-mono text-[0.6rem] sm:text-[0.65rem] lg:text-xs tracking-wider uppercase whitespace-nowrap px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 flex items-center gap-1 sm:gap-1.5 focus:outline-none",
+                    isActive
+                      ? "bg-white/15 text-white font-semibold border border-white/20 shadow-sm"
+                      : "text-white/60 hover:text-white hover:bg-white/5 font-medium"
+                  )}
+                >
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shrink-0"></span>
+                  )}
+                  <span>{item.label}</span>
+                </button>
+              );
+            })}
+          </nav>
 
-            {/* Discreet Terminal Trigger (Easter Egg #1) */}
-            <button
-              type="button"
-              onClick={() => setTerminalOpen(true)}
-              aria-label="Open System Terminal"
-              title="DURGESH.OS Terminal (or press ~)"
-              className="shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/[0.06] hover:bg-cyan-500/20 text-white/50 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 flex items-center justify-center font-mono text-[10px] transition-all cursor-pointer hover:shadow-[0_0_10px_rgba(6,182,212,0.3)] active:scale-95"
-            >
-              &gt;_
-            </button>
-          </div>
+          {/* Right Column: Discreet Terminal Trigger (Easter Egg #1) */}
+          <button
+            type="button"
+            onClick={() => setTerminalOpen(true)}
+            aria-label="Open System Terminal"
+            title="DURGESH.OS Terminal (or press ~)"
+            className="shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/[0.06] hover:bg-cyan-500/20 text-white/50 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 flex items-center justify-center font-mono text-[10px] transition-all cursor-pointer hover:shadow-[0_0_10px_rgba(6,182,212,0.3)] active:scale-95"
+          >
+            &gt;_
+          </button>
         </div>
       </div>
     </header>
