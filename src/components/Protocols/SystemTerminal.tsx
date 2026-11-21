@@ -78,7 +78,7 @@ export default function SystemTerminal() {
         newHistory.push({
           id: `${Date.now()}-out`,
           type: 'output',
-          text: 'AVAILABLE COMMANDS:\n  about     - Navigate to engineering philosophy\n  journey   - Navigate to career & growth milestones\n  projects  - Navigate to technical project showcase\n  systemlab - Navigate to interactive System Lab\n  skills    - Navigate to AI/ML & technical stack\n  contact   - Navigate to contact portal\n  secret    - Execute classified protocol\n  clear     - Clear terminal history\n  exit      - Close terminal',
+          text: 'AVAILABLE COMMANDS:\n  about     - Navigate to engineering philosophy\n  journey   - Navigate to career & growth milestones\n  projects  - Navigate to technical project showcase\n  systemlab - Navigate to interactive System Lab\n  skills    - Navigate to AI/ML & technical stack\n  contact   - Navigate to contact portal\n  editing   - Launch Editing & Motion Graphics Portfolio\n  secret    - Execute classified protocol\n  clear     - Clear terminal history\n  exit      - Close terminal',
         });
         break;
 
